@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div class="row">
+    			<nav class="navbar navbar-default">
+  				<div class="container">
+    					<!-- Brand and toggle get grouped for better mobile display -->
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+      						<a class="navbar-brand" href="default">Home</a>
+    					</div>
+
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="schedule">Schedule <span class="sr-only">(current)</span></a></li>
+							<li><a href="resources">Resources</a></li>
+						</ul> 
+					</div><!-- /.navbar-collapse -->
+ 				</div>
+			</nav>
+		</div>
+
+
+
+		<div class="row">
+			<div class="container page-header alert-info">
+				<h1> Unix </h1>
+			</div>
+		</div>
+
+		
+
+
+	  	<div ng-bind="section1"></div>
+		
+		<br><br>
+		
+		<div>
+			<h4> <span class="label label-warning"> Introduction </span></h4>
+			<p > Making skills
+			</p>
+		</div>
+
+		<br><br>
+
+		<div class="panel panel-danger">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Prerequisites</div>
+			<div><p> It is assumed that user has a basic knowledge of operating computer system. Before Start lectures it is mandatory to install required softwares from resources link.</p>
+		</div>
+		</div> <br><br>
+		<div class="panel panel-success">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Python</div>
+
+			  <!-- Table -->
+			  <table class="table">
+			    <thead>
+			      <tr>
+				<th>Sr</th>
+				<th>Lecture</th>
+				<th>Link</th>
+				
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+				<td>1</td>
+				<td>Introduction</td>
+				<td><a href="../unix lectures/01-intro"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr>
+			      <tr>
+				<td>2</td>
+				<td>Files</td>
+				<td><a href="../unix lectures/02-files"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr>
+			      <tr>
+				<td>3</td>
+				<td>Common Commands</td>
+				<td><a href="../unix lectures/03-commands"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr>
+			      <tr>
+				<td>4</td>
+				<td>Redirection</td>
+				<td><a href="../unix lectures/04-redirection"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr> 
+			      <tr>
+				<td>5</td>
+				<td>Performance</td>
+				<td><a href="../unix lectures/05-performance"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr> 
+
+			  </table>
+		</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+	<script src="../js/angular.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery.min.js"></script>
+	
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Python is freeware. We call such a software as open source software. Open source means we can get the entire system for free over the Internet. There are no restrictions on copying it, embedding it in systems, or shipping it with products. Python is written in portable ANSI C, and compiles and runs on virtually every major platform in use today. For example, it runs on Unix systems, Linux, MS-DOS, MS-Windows (95, 98, NT), Macintosh, Amiga, Be-OS, OS/2, VMS, QNX, and more. Python provides all the simplicity and ease of use of a scripting language, along with more advanced programming tools typically found in systems development languages. It is a powerful language.";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>
