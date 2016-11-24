@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<style>
+	img{
+		width:150px;
+		height:150px;
+		float:right;
+	}
+	.item {
+	 height: 200px;
+	 width: 600px;
+	 overflow: hidden;
+	}
+	.item img {
+	 height: auto;
+	 width: 400px;
+}
+
+        </style>
+
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div class="row">
+    			<nav class="navbar navbar-default">
+  				<div class="container">
+    					<!-- Brand and toggle get grouped for better mobile display -->
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+      						<a class="navbar-brand" href="default">Home</a>
+    					</div>
+
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="schedule">Schedule <span class="sr-only">(current)</span></a></li>
+							<li><a href="resources">Resources</a></li>
+						</ul> 
+					</div><!-- /.navbar-collapse -->
+ 				</div>
+			</nav>
+		</div>
+
+
+
+	<div class="jumbotron" style="height:170px;">
+	<img src="../images/slide2.jpg" class="img-circle" alt="...">	
+	<img src="../images/slide4.jpg" class="img-circle" alt="..." style="margin-right:20px">	  
+	<img src="../images/slide3.jpg" class="img-circle" alt="..." style="margin-right:40px">	  
+	<h1 >HPC Workshop</h1>
+		  
+	 <!-- style=" border-radius:0.9; background:black; color:white; box-shadow:5px 5px orange;"" -->
+	</div>
+
+
+	<div style="padding:0;margin:auto">
+	  
+		
+	</div>
+
+
+
+
+
+
+
+		<div>
+		<table class="table table-inverse">
+		  <thead>
+		    <tr>
+		      
+		      <th>Basic Skills for HPC</th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      
+		      <td>High-performance computing is typically used for solving advanced problems and performing research activities through computer modeling, simulation and analysis. To start with HPC the minimum learning requirements are provided here. You should at-leaset know how to operate computer system and some basic knowledge about programming.</td>
+		<td></td>
+		    </tr>
+		  </tbody>
+                </table>
+
+	  	</div>
+		
+		<br><br>
+		
+		<div>
+			<h4> <span class="label label-warning" style="padding:30px; "> Our Curriculum </span></h4>
+			
+		</div>
+
+		<br><br>
+
+		
+
+		<div class="panel panel-default">
+		  <div class="panel-heading"><a href="python_list">Python Lectures</a></div>
+		  <div class="panel-body"><a href="unix_list">Unix Lectures</a></div>
+		    
+		</div>
+
+</div><!-- /.container-fluid -->
+
+
+
+	<script src="../js/angular.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="../js/jquery.min.js"></script>
+	
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Python is freeware. We call such a software as open source software. Open source means we can get the entire system for free over the Internet. There are no restrictions on copying it, embedding it in systems, or shipping it with products. Python is written in portable ANSI C, and compiles and runs on virtually every major platform in use today. For example, it runs on Unix systems, Linux, MS-DOS, MS-Windows (95, 98, NT), Macintosh, Amiga, Be-OS, OS/2, VMS, QNX, and more. Python provides all the simplicity and ease of use of a scripting language, along with more advanced programming tools typically found in systems development languages. It is a powerful language.";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>
