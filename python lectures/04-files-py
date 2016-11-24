@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Reading Files</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. To know what is a file, How to read and write file</p>
+					<p>2. To know what is a library?</p>
+					<p>3. Explore matplotlib library</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 20 min</li>
+					<li class="list-group-item">Exercise : 2</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div >As we usually store our data in a file, we will now open our "hepatitis.csv" file to read and load data to perform some processing steps on it. A file is a collection of data. The data may be of different types. The extension of file tells us about the content of file e.g. if a file has extension .doc, it means it is a document. similarly .dat or .data shows that the file contains rows and columns of data, .csv means a file with comma separated values, .xlsx shows an excel worksheet and so on. Images are usually stored with the extensions of png, jpg, bmp, gif etc.</div>
+		
+		<br><br>
+		
+		<div>
+			<h4> <span class="label label-warning"> Modes of Files </span></h4>
+			<p > Now we are dealing with a dataset which contains the data of some hapatitis patients. The source of data is https://archive.ics.uci.edu/ml/datasets/Hepatitis. It contains different tests results applied on patients of different ages. The attributes and the possible values of the dataset are as follows. We are not going to use all of these attributes. We will consider only a few from them.</p>
+<p> Attribute information: <br>
+     1. Class: DIE, LIVE<br>
+     2. AGE: 10, 20, 30, 40, 50, 60, 70, 80<br>
+     3. SEX: male, female<br>
+     4. STEROID: no, yes<br>
+     5. ANTIVIRALS: no, yes<br>
+     6. FATIGUE: no, yes<br>
+     7. MALAISE: no, yes<br>
+     8. ANOREXIA: no, yes<br>
+     9. LIVER BIG: no, yes<br>
+    10. LIVER FIRM: no, yes<br>
+    11. SPLEEN PALPABLE: no, yes<br>
+    12. SPIDERS: no, yes<br>
+    13. ASCITES: no, yes<br>
+    14. VARICES: no, yes<br>
+    15. BILIRUBIN: 0.39, 0.80, 1.20, 2.00, 3.00, 4.00<br>
+        
+    16. ALK PHOSPHATE: 33, 80, 120, 160, 200, 250<br>
+    17. SGOT: 13, 100, 200, 300, 400, 500 <br>
+    18. ALBUMIN: 2.1, 3.0, 3.8, 4.5, 5.0, 6.0<br>
+    19. PROTIME: 10, 20, 30, 40, 50, 60, 70, 80, 90<br>
+    20. HISTOLOGY: no, yes</p>
+
+			<p>Data File is in csv format.A file can be opened in any specific mode. We have different modes to open a file including(r, w, a, r+, w+, ...). To read a file we open it in r mode. To write a file open it in w mode. To append a file open it in a mode, To read and write both open in r+ or w+ mode. There are other some other modes as well but most commonly used are r, w and a modes. Here to read our file, open it in 'r' mode.
+ 
+			</p>
+		</div>
+
+
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	list_of_patients=[]<br>
+				patient=[]<br>
+				with open('hepatitis.csv','r') as input:<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;for reader in input:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#rstrip to remove \n character<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reader = reader.rstrip()<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;patient= reader.split(',')<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list_of_patients.append(patient)<br>
+
+				for patient in list_of_patients:<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;print(patient)
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				2,30,2,1,2,2,2,2,1,2,2,2,2,2,1.00,85,18,4.0,?,1<br>
+				2,50,1,1,2,1,2,2,1,2,2,2,2,2,0.90,135,42,3.5,?,1<br>
+				2,78,1,2,2,1,2,2,2,2,2,2,2,2,0.70,96,32,4.0,?,1<br>
+				2,31,1,?,1,2,2,2,2,2,2,2,2,2,0.70,46,52,4.0,80,1<br>
+				2,34,1,2,2,2,2,2,2,2,2,2,2,2,1.00,?,200,4.0,?,1<br>
+				2,34,1,2,2,2,2,2,2,2,2,2,2,2,0.90,95,28,4.0,75,1<br>
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > Usually at the end of each line in a file, there is a "end of line" character(\n). When we read data from file, we have to remove this character. split function breaks a string into multiple substrings based on given character and returns a list. append function is used to insert a new item into list.
+			</p>
+		</div>
+
+		<div>
+			
+			<p > We have loaded our data from file to memory, in our data structure "list_of_patients". Now it is ready for visualization. we can make different type of plots like line plot, surface plot, pie plot, scatter plot and so on. To plot something we need libraries. A library is a collection of components in a ready to use format. There are Standard libraries of python as well as user defined libraries. Standard libraries provides extensive facilities for many operations. Some of python libraries are math, numpy, os, csv, matplotlib and so on. Math library provides all of the functions of math which we can use in our python code like sqrt, sin, cos etc. Similarly numpy provides modules to deal with numeric arrays. Here is an example on how to import math library and use it.
+			</p>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				import math<br>
+                                print ("math.exp(-45.17) : ", math.exp(-45.17))<br>
+                                print ("math.cos(30) : ", math.cos(30))<br>
+                                print ("math.pi : ", math.pi)<br>
+                                print ("math.sqrt(4) : ", math.sqrt(4))
+  			</div>
+		</div>
+
+                <div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				math.exp(-45.17) :  2.4150062132629406e-20<br>
+                         	math.cos(30) :  0.15425144988758405<br>
+				math.pi :  3.141592653589793<br>
+				math.sqrt(4) :  2.0
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			<p>Similarly we can import and use any library. To plot our graphs we need matplotlib library. By importing a library in our code all of the functionality of that library is made available to us. Using matplotlib we can make different types of plots to visualize our data.</p>
+			
+			<p>Here we are plotting the ratio of bilirubin in the patients of hepatitis w.r.t their ages. To plot this we need two columns of data from our data set; age and bilirubin.</P>
+
+			<p>We will extract this data from our lists and insert into a new one to plot. 
+		</p>	
+		</div>
+	
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				#line plot<br>
+				age=[]<br>
+				bilirubin=[]<br>
+				import matplotlib.pyplot as plt<br>
+
+				for i in range(len(list_of_patients)):<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;age.append(list_of_patients[i][0])<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;bilirubin.append(list_of_patients[i][1])<br>
+
+				plt.plot(age, bilirubin)<br>
+				plt.xlabel('Age of Patient')<br>
+				plt.ylabel('Bilirubin Factor')<br>
+				plt.title('Scanning Patient Attributes...')<br>
+				plt.grid(True)<br>
+				plt.savefig("age_bilirubin.png")<br>
+				plt.show()<br>
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				<img src="../images/age_bilirubin.png" height="300" width="400">
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > The scatter plot for the above scenario.</p>
+			
+			
+		</div>
+
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				#scatter plot<br>
+				import matplotlib.pyplot as plt<br>
+				fig, ax = plt.subplots()<br>
+				ax.scatter(age, bilirubin, alpha=0.5)<br>
+				ax.set_xlabel('Age', fontsize=20)<br>
+				ax.set_ylabel('Bilirubin', fontsize=20)<br>
+				ax.set_title('Scanning Patient Attributes...')<br>
+				ax.grid(True)<br>
+				fig.tight_layout()<br>
+				plt.savefig("age_bilirubin_scatter.png")<br>
+				plt.show()
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				<img src="../images/age_bilirubin_scatter.png" height="300" width="400">
+				
+  			</div>
+		</div>
+ 
+               <div>
+			<p>To use a library we import it in our code using import command. as is used to define an alias of the library. plt.plot or plt.scatter defines the type of plot. We can set different attributes of plot like xlabel, ylabel, title, legend, scale etc. plt.savefig saves the plot on the disk in given format. plt.show displays the plot on screen.</p>
+
+		
+			
+
+		</div>
+
+		<br><br>
+		<div>
+		
+			We considered only two attributes age and bilirubin. What we did is to read them from file and insert into lists. But I want to write them in a new file too. For this create a new file and write data into it. Edit the previous code like this
+			
+		</div>
+
+		<br><br>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				#line plot<br>
+				age=[]<br>
+				bilirubin=[]<br>
+				import matplotlib.pyplot as plt<br>
+				file = open("data.txt", "w")<br>
+                                file.write("age\tBilirubin\n")<br>
+				for i in range(len(list_of_patients)):<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;age.append(list_of_patients[i][0])<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;bilirubin.append(list_of_patients[i][1])<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;file.write(list_of_patients[i][0] + "\t" + list_of_patients[i][1]+"\n")<br>
+                                file.close()
+				plt.plot(age, bilirubin)<br>
+				plt.xlabel('Age of Patient')<br>
+				plt.ylabel('Bilirubin Factor')<br>
+				plt.title('Scanning Patient Attributes...')<br>
+				plt.grid(True)<br>
+				plt.savefig("age_bilirubin.png")<br>
+				plt.show()<br>
+				
+  			</div>
+		</div>
+                <div>
+		
+			It will create a new file data.txt. The data in the file should look like same.
+			
+		</div>
+
+
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				age     Bilirubin<br>
+                                20       30<br>
+				32       50<br>
+				25       78<br>
+				29       31<br>
+				42       34<br>
+				20       39<br>
+				32       32<br>
+				62       41<br>
+				24       30<br>
+				
+				.....
+  			</div>
+		</div>
+		<br><br>
+
+
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				1. What is the file handler variable in above code?<br>				
+				2. Which mode will be used to add more data in a file?<br>
+				
+
+			</a>
+		</div>
+		<div class="collapse" id="collapseTwo">
+			<div class="well">
+		    	1. input<br>
+                        2. a
+			</div>
+		</div>
+
+		<br><br>
+
+
+	      
+<div class="page-header alert-success">
+  <p> <a href="03-loops-py">Next >> Repetitive Tasks</a> </p>
+</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Python is freeware. We call such a software as open source software. Open source means we can get the entire system for free over the Internet. There are no restrictions on copying it, embedding it in systems, or shipping it with products. Python is written in portable ANSI C, and compiles and runs on virtually every major platform in use today. For example, it runs on Unix systems, Linux, MS-DOS, MS-Windows (95, 98, NT), Macintosh, Amiga, Be-OS, OS/2, VMS, QNX, and more. Python provides all the simplicity and ease of use of a scripting language, along with more advanced programming tools typically found in systems development languages. It is a powerful language.";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>
