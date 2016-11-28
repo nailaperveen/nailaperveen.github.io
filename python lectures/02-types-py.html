@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Types in Python</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. To know about the simple and complex data types </p>
+					<p>2. To know how to run python script</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 15 min</li>
+					<li class="list-group-item">Exercise : 2</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div ng-bind="section1"></div>
+		
+		<br><br>
+		
+		<div>
+			<h4> <span class="label label-warning"> Simple Data Types: Number and Strings </span></h4>
+			<p > In Python we have two simple data types Number and String. Number can hold both integer and floating point numbers. There are four main types of Number. They are int, long, float and complex. Some of the examples are: 
+			</p>
+		</div>
+
+		<br><br>
+		<div>
+			<table class="table table-striped">
+			    <thead>
+			      <tr>
+				<th>int</th>
+				<th>long</th>
+				<th>float</th>
+				<th>complex</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+				<td>20</td>
+				<td>874076L</td>
+				<td>72.78</td>
+				<td>9.25j</td>
+			      </tr>
+			      <tr>
+				<td>-286</td>
+				<td>-0x19323L</td>
+				<td>-90.</td>
+				<td>3e+26J</td>
+			      </tr>
+			     
+			    </tbody>
+			  </table>
+
+		</div>
+
+		 <div>
+			
+			<p > Strings can hold numbers, letters and special characters. We can also use escape sequences in strings. Strings in python can be enclosed in single or double quotes. Strings are immutable, means we can replace a string with the new one but cannot modify a string after assigning it into a variable. We can use special characters in strings. To use special characters in strings we use them with backslashes.
+			</p>
+			
+			
+		</div>
+
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> print("I\'ll be there in ten minutes") <br>
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				I'll be there in ten minutes <br>
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > or alternatively raw strings can be used by adding an r before the first quote.</p>
+			
+			
+		</div>
+	
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> print(r"I'll be there in ten minutes") <br>
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				I'll be there in ten minutes <br>
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > we can use format specifiers inside strings. The string given below will be break into two lines.</p>
+			
+			
+		</div>
+
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> print(r"I'll be there\n in ten minutes")
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				I'll be there<br> in ten minutes <br>
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+
+		<div>
+			
+			<p > We can also use multi-line strings.Multi-line strings start and end with tripple single or double quotes.</p>
+			
+			
+		</div>
+
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>>print ('''This is the string span<br>
+...over multiples<br>
+...lines''')<br><br>
+
+
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				This is the string span<br>
+over multiples<br>
+lines
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > we can also perform indexing on strings. Strings indexes starts with 0. That's why we are getting 'o' on position[1] rather than G.
+			</p>
+			
+			
+		</div>
+
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> str = "Good Morning"<br>
+                                >>> str[1]<br>
+				>>> str[-1]
+
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				o<br>g
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > To find lenght of string use len function.
+			</p>
+			
+			
+		</div>
+
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> len("Good Morning")
+
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				12
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+
+		<div>
+			<h4><span class="label label-warning">Other Types</span></h4>
+			<p > With simple types Python provides us a number of compound data types like lists, dictonaries, sets etc. If our data contains information about 100 patients then we will have to create 100 different variables. It is difficult to manage a large no. of variables. Thats why to hold our hepatitus data we need some better data structure rather than using simple variables.
+			</p>
+			
+			
+		</div>
+
+
+
+		<br><br>
+
+
+		<div>
+			<h4><span class="label label-warning">List</span></h4>
+			<p > List may be defined as a single variable with multiple values. All values are separated with comma and are contained in square brackets.Values inside list can be of any data type. Lists are mutable means their elements can be changed at any time. Like strings we can apply indexing and slicing on lists.
+
+
+			</p>
+			
+			
+		</div>
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> alphabet = ['a','b','c','d','e']<br>
+				>>> alphabet<br>
+				>>>alphabet[0]<br>
+				>>>alphabet[0,2]<br>
+				>>>len(alphabet)<br>
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				['a','b','c','d','e']<br>
+				'a'<br>
+                                ['a', 'b']<br>
+                                5<br>
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > We can add new elements or remove existing elements from lists.
+			</p>
+			
+			
+		</div>
+<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> alphabet.append('f')<br>
+				>>>  alphabet<br>
+				>>>alphabet.remove('d')<br>
+				>>>  alphabet<br>
+				>>> del alphabet[1]
+				>>> alphabet
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				['a', 'b', 'c', 'd', 'e', 'f']<br>
+ 				['a', 'b', 'c', 'e', 'f']<br>
+				['a', 'c', 'e', 'f']
+  			</div>
+		</div>
+
+		<br><br>
+		<div class="alert alert-danger" role="alert"> Note : 
+			<p >
+				To terminate the Python interactive mode press ctrl+D or type exit(). Now we've got familiar with python interactive mode. Let's start writing our script using gedit, a text editor. To start gedit, type gedit in terminal and press enter. A blank document with the name untitled is open. Save this document before start writing script.
+			</p>
+		</div>
+
+
+		<br><br>
+
+
+		<div>
+			
+			<p > It is also possible to create a list of lists. Here is an example of complete python script to create a Nested list.
+			</p>
+			
+			
+		</div>
+<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				#list.py<br>
+				args_list=[['a','b','c'],[1,2,3],['x','y','z'],[7,8,9]]<br><br>
+
+				print("First Sublist")<br>
+				print(args_list[0])<br><br>
+
+				print("First element of First Sublist")<br>
+				print(args_list[0][0])<br><br>
+
+				print("Last Sublists")<br>
+				print(args_list[3])<br>
+				print(args_list[-1])<br><br>
+
+				print("Last item of last Sublist")<br>
+				print (args_list[3][2]) #print (args_list[-1][-1])<br><br>
+
+				print("Complete List", args_list)<br>
+				print("Length of list", len(args_list)
+
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				First Sublist<br>
+				['a', 'b', 'c']<br><br>
+				First element of First Sublist<br>
+				a<br><br>
+				Last Sublists<br>
+				[7, 8, 9]<br>
+				[7, 8, 9]<br><br>
+				Last item of last Sublist<br>
+				9<br><br>
+				Complete List [['a', 'b', 'c'], [1, 2, 3], ['x', 'y', 'z'], [7, 8, 9]]<br>
+				Length of list 4
+  			</div>
+		</div>
+
+		<br><br>
+
+
+	      
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+				How to find the lenght of each sublist?
+			</a>
+		</div>
+		<div class="collapse" id="collapseExample">
+			<div class="well">
+		    		print (len(args_list[0]))<br>
+			print (len(args_list[1]))<br>
+			print (len(args_list[2]))<br>
+			print (len(args_list[3]))
+			</div>
+		</div>
+		
+		<br><br>
+		<div class="alert alert-danger" role="alert"> Note : 
+			<p >
+				We can never use len(args_list) as a valid index. If a list has length 5, then indices will be from 0 to 4.
+			</p>
+		</div>
+
+
+		<br><br>
+
+		<div>
+			<h4> <span class="label label-warning"> Copy List vs Assign List</span></h4>
+			<p > See the difference between copy "list elements into other list" and assign "list into other list".
+			</p>
+			
+			
+		</div>
+<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+                                #Assign List Example<br>
+    				primary_clrs = ["Red", "Green"]<br>
+				RGB_clrs = primary_clrs<br>
+
+				primary_clrs += ["Blue"]<br>
+				print("primary_clrs", primary_clrs)<br>
+				print("RGB_clrs", RGB_clrs)
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				primary_clrs ['Red', 'Green', 'Blue']<br>
+				RGB_clrs ['Red', 'Green', 'Blue']
+
+  			</div>
+		</div>
+
+		<br><br>
+
+
+		<div>
+			
+			<p > Appending one element in primary_clrs list will also append one element in RGB_clrs list because both lists refer to a single element. Now copy the list contents in a different way. 
+			</p>
+			
+			
+		</div>
+<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+                                #Copy List Example<br>
+    				primary_clrs = ["Red", "Green"]<br>
+				RGB_clrs = list(primary_clrs)<br>
+
+				primary_clrs += ["Blue"]<br>
+				print("primary_clrs", primary_clrs)<br>
+				print("RGB_clrs", RGB_clrs)
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				primary_clrs ['Red', 'Green', 'Blue']<br>
+				RGB_clrs ['Red', 'Green']
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > By copying items using list keyword, only list elements are copied into RGB_list and hence both primary_clrs and RGB_clrs refer different lists. <br>we can also reverse the list using command.
+ 
+			</p>
+			
+			
+		</div>
+<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				primary_clrs.reverse()<br>
+				print("List of primary colors after reverse", primary_clrs)
+
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				List of primary colors after reverse ['Blue', 'Green', 'Red']
+
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > Two different lists can be combined into one, using plus(+) operator. It is called as concatenation operator. Plus operator when applied on numbers, used to add them but for strings and lists it is used to concatenate them. When an operator behaves differently with different data types it is called as operator overloading.
+ 
+			</p>
+			
+			
+		</div>
+<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				odds = [1,3,5,7,9]<br>
+				evens = [2,4,6,8,10]<br>
+				odds_evens = odds + evens<br>
+				print(odds_evens)
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				[1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
+
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p > To arrange numbers in a sequence we can sort lists.
+ 
+			</p>
+			
+			
+		</div>
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				odds_evens.sort()<br>
+				print(odds_evens)
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+  			</div>
+		</div>
+
+		<br><br>
+		<div>
+			
+			<p > Slicing a List means taking a sub part of list. we can slice a list or string to take a sublist or substring from it.
+
+ 
+			</p>
+			
+			
+		</div>
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				mystring = "Truth is the highest thing that man may keep"<br><br>
+				substring = mystring[13:26]<br>
+				print ("Substring: ",substring)<br><br>
+
+				substring=mystring[13:]<br>
+				print ("Substring: ",substring)<br><br>
+
+				substring=mystring[:26]<br>
+				print ("Substring: ",substring)
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				Substring:  highest thing<br>
+				Substring:  highest thing that man may keep<br>
+				Substring:  Truth is the highest thing
+
+
+  			</div>
+		</div>
+
+		<br><br>
+
+
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				What is the output of these print statements?<br>				
+				odds_evens=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br>
+				print("Sublist: ", odds_evens[2:4])<br>
+				print("Sublist: ", odds_evens[2:])<br>
+				print("Sublist: ", odds_evens[:4])
+
+			</a>
+		</div>
+		<div class="collapse" id="collapseTwo">
+			<div class="well">
+		    	Sublist:  [3, 4]<br>
+			Sublist:  [3, 4, 5, 6, 7, 8, 9, 10]<br>
+			Sublist:  [1, 2, 3, 4]
+			</div>
+		</div>
+
+		<br><br>
+
+
+	      
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p> <a href="03-loops-py.html">Next >> Repetitive Tasks</a> </p>
+</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+	<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "In our daily life we deal different types of data. Name of students, flight information, accounts, sales and purchase are different examples of data. According to value we can divide data into different types.";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>

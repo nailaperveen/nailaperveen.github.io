@@ -1,0 +1,716 @@
+Python is freeware.We call such a software as open source software. Open source means we can get the entire system for free over the Internet. There are no restrictions on copying it, embedding it in systems, or shipping it with products. Python is written in portable ANSI C, and compiles and runs on virtually every major platform in use today. For example, it runs on Unix systems, Linux, MS-DOS, MS-Windows (95, 98, NT), Macintosh, Amiga, Be-OS, OS/2, VMS, QNX, and more. Python provides all the simplicity and ease of use of a scripting language, along with more advanced programming tools typically found in systems development languages. It is a powerful language
+
+An Interpretd Language
+
+Python can run on any platform including unix, linux, windows etc. On a Unix machine usually the Python interpreter is installed in /usr/local/bin folder. On a Windows machine the defualt place for Python interpreter is C:\. But the location is a part of installation process so you can change its place but it is not recommended. If you change the location of Python interpreter then there is a need to update the PATH variable. To start Python you just type python in terminal window. 
+
+Interactive Mode
+
+Three greater-than signs (>>>) is the primary prompt of Python. when we run Python using python command, it is started in interactive mode. First it shows the version information and then display the primary prompt. Primary prompt(>>>) means interpreter is ready to accept commands and run them immediately. when a statement breaks into two lines it shows the secondary prompt which is triple dot (...)
+
+Jupyter Notebook
+we can run python from command line but for this workshop we will use jupyter notebook. The Jupyter Notebook App is a server-client application that allows editing and running notebook documents via a web browser. Notebook documents produced by the Jupyter Notebook contain both computer code (e.g. python) and rich text elements (paragraph, equations, figures, links, etc...). Notebook documents are both human-readable documents containing the analysis description and the results (figures, tables, etc..) as well as executable documents which can be run to perform data analysis. 
+
+The important thing to understand is that here we are not limited to python only. Rather we are discussing general programming techniques that can be applied any where in any programming language. we will discuss general concepts and tricks of porgramming. Once the basic concepts are clear it is easy to code in any language. To continue with our discussion here we have a dataset of Hepatitis Patients. It contains different attributes related with dignostic and intensity of hepatitis in different age groups. Based on that attributes Our goal is to read, understand, process, and finally make some observations on that data. To achieve this all there are some basic concepts that we need to understand first.
+
+
+
+Getting Familiar with the Data Types
+
+As we have to deal with data; age of patients, different blood measurements etc so first we will see what is data? and how we organize it?
+In Python we have two simple data types numbers and strings. Number can hold both integer and floating point numbers. Strings can hold numbers, letters and special characters. To perform processing on our data(numbers and strings), we need them to store somewhere. That is where the concepts of variables come in. Variables are simple containers to hold some data in memory. A variable can hold any thing: Number, String, File, image, video etc. In Python there is no need to define the data type of variable. We just declare the name of a variable and pass some value to it. Depending on the value passed to the variable, the interpreter determines the type of variable automatically and it can change at any time. For example there is a variable "price". we can assign value in it like this
+
+>>> price = 80
+
+and later in our code we may use the same variable like this
+
+>>> price = "eighty"
+
+Here in this example first variable is numeric and second is string. If we try to use a variable that is not assigned a value. it will give an error like this.
+
+>>> print (item)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'item' is not defined
+
+
+print statement in Python is used to diplay output on screen. It can take zero or more parameters. With zero parameters it displays a blank line. If there are more than one parameter, they are separated with commas. We can also perform arithemtic in print statment.
+
+>>> print("5000 Kbs is equal to ", 5000/1000 , " Mbs")
+
+Strings in python can be enclosed in single or double quotes. Strings are immutable means we can replace a string with the new one but cannot modify a string after assigning into a variable. We can use special characters in strings. To use special characters in strings we use them with backslashes. 
+
+>>> print("I\'ll be there in ten minutes")
+
+or alternatively raw strings can be used by adding an r before the first quote.
+
+>>> print(r"I'll be there in ten minutes")
+
+we can use format specifires inside strings. The string given below will be break into two lines. 
+>>> print(r"I'll be there\n in ten minutes")
+
+We can also use multi-line strings.Multi-line strings start and end with tripple single or double quotes.
+
+>>>print ('''This is the string span
+...over multiples
+...lines''')
+
+This is the string span
+over multiples
+lines
+
+
+we can also perform indexing on strings
+
+>>> str = "Good Morning"
+>>> str[1]
+o
+
+Strings indexes starts with 0. That's why we are getting o on position[1] rather than G.
+
+>>> str="Good Morning"
+>>> str[-1]
+what you expects now?
+
+To find lenght of string use len function.
+
+>>> len("Good Morning")
+12
+
+
+Note: To terminate the Python interactive mode press ctrl+D or type exit(). Now we've got familiar with python interactive mode. Let's start jupyter notebook by typing "jupyer notebook" in terminal. It automatically launch a new notebook when starts. Save it with a new name before start working. We can type our python code in cells.To run press shift+enter.
+
+With simple types Python provides us a number of compound data types like lists, dictonaries, sets etc. If our data contains information about 100 patients then we will have to create 100 different variables. It is difficult to manage a large no. of variables. Thats why to hold our hepatitus data we need some better data structure rather than using simple variables.
+
+Lists
+
+List may be defined as a single variable with multiple values. All values are separated with comma and are contained in square brackets.Values inside list can be of any data type. Lists are mutable means their elements can be changed at any time.
+
+list_of_studentIDs=['1120',1121,'1122']
+
+Like strings we can apply indexing and slicing on lists
+
+>>> alphabet = ['a','b','c','d','e']
+>>> alphabet
+['a','b','c','d','e']
+>>>alphabet[0]
+'a'
+>>>alphabet[0,2]
+['a', 'b']
+>>>len(alphabet)
+5
+
+We can add new elements or remove existing elements from lists.
+>>> alphabet.append('f')
+>>>  alphabet
+['a', 'b', 'c', 'd', 'e', 'f']
+>>> alphabet
+
+>>>alphabet.remove('d')
+>>>alphabet
+['a', 'b', 'c', 'e', 'f']
+
+
+>>> del alphabet[1]
+>>> alphabet
+['a', 'c', 'e', 'f']
+
+It is also possible to create a list of lists. Here is an example of complete python script to create a Nested list.
+
+lists.py
+
+#list of lists example
+args_list=[['a','b','c'],[1,2,3],['x','y','z'],[7,8,9]]
+
+#display first sublist
+print("First Sublist")
+print(args_list[0])
+
+#display first element of first sublist
+print("First element of First Sublist")
+print(args_list[0][0])
+
+#display last sublist
+print("Last Sublists")
+print(args_list[3])
+print(args_list[-1])
+
+
+#display last item of last sublist
+print("Last item of last Sublist")
+print (args_list[3][2]) #print (args_list[-1][-1])
+
+print("Complete List", args_list)
+print("Length of list", len(args_list)
+
+output
+
+First Sublist
+['a', 'b', 'c']
+First element of First Sublist
+a
+Last Sublists
+[7, 8, 9]
+[7, 8, 9]
+Last item of last Sublist
+9
+Complete List [['a', 'b', 'c'], [1, 2, 3], ['x', 'y', 'z'], [7, 8, 9]]
+Length of list 4
+
+
+Question: How to find the lenght of each sublist?
+solution:
+
+print (len(args_list[0]))
+print (len(args_list[1]))
+print (len(args_list[2]))
+print (len(args_list[3]))
+
+important: We can never use len(args_list) as a valid index. If a list has length 5, then indices will be from 0 to 4.
+
+
+See the difference between copy "list elements into other list" and assign "list into other list"
+primary_clrs = ["Red", "Green"]
+RGB_clrs = primary_clrs
+
+primary_clrs += ["Blue"]
+print("primary_clrs", primary_clrs)
+print("RGB_clrs", RGB_clrs)
+
+Appending one element in primary_clrs list will also append one element in RGB_clrs list because both lists refer to a single element. Now copy the list contents in a different way. 
+
+primary_clrs = ["Red", "Green"]
+RGB_clrs = list(primary_clrs)
+
+primary_clrs += ["Blue"]
+print("primary_clrs", primary_clrs)
+print("RGB_clrs", RGB_clrs)
+
+output
+
+primary_clrs ['Red', 'Green', 'Blue']
+RGB_clrs ['Red', 'Green', 'Blue']
+
+By copying items using list keyword, only list elements are copied into RGB_list and hence both primary_clrs and RGB_clrs refer different lists.
+
+output
+
+primary_clrs ['Red', 'Green', 'Blue']
+RGB_clrs ['Red', 'Green']
+
+we can also reverse the list using command
+primary_clrs.reverse()
+print("List of primary colors after reversing", primary_clrs)
+
+List of primary colors after reversing ['Blue', 'Green', 'Red']
+
+Two different lists can be combined into one, using plus(+) operator. It is called as concatenation operator. Plus operator when applied on numbers, used to add them but for strings and lists it is used to concatenate them. When an operator behaves differently with different data types it is called as operator overloading.
+
+odds = [1,3,5,7,9]
+evens = [2,4,6,8,10]
+odds_evens = odds + evens
+print(odds_evens)
+
+output
+[1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
+
+
+To arrange numbers in a sequence we can sort lists
+odds_evens.sort()
+print(odds_evens)
+
+output
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+Slicing a List means taking a sub part of list. we can slice a list or string to take a sublist or substring from it.
+
+mystring = "Truth is the highest thing that man may keep"
+substring = mystring[13:26]
+print ("Substring: ",substring)
+
+substring=mystring[13:]
+print ("Substring: ",substring)
+
+substring=mystring[:26]
+print ("Substring: ",substring)
+
+
+output:
+
+Substring:  highest thing
+Substring:  highest thing that man may keep
+Substring:  Truth is the highest thing
+
+
+sublist = odds_evens[2:4]
+print("Sublist: ", sublist)
+sublist = odds_evens[2:]
+print("Sublist: ", sublist)
+sublist = odds_evens[:4]
+print("Sublist: ", sublist)
+
+output:
+Sublist:  [3, 4]
+Sublist:  [3, 4, 5, 6, 7, 8, 9, 10]
+Sublist:  [1, 2, 3, 4]
+
+_________________________________________________________________________________________________________________________
+
+
+The given attributes to judge the quality of cars are buying and maintenance price, number of doors, capacity in terms of persons to carry, size of luggage boot and estimated safety. Here we need variables to store the values of all given attributes. Let suppose we have a file "car.data" with all the required data. First we will read this file, extract data from it, perform our analysis and finally give output. Here we have almost 1700 records, means data attributes of 1700 different cars. To analyse this data we should have some data structure where we can keep this data. Is a list a better choice? The data in list will be placed like this:
+
+cars[0]=buying price of first car
+cars[1]=maintenance price of first car
+cars[2]=number of doors of first car
+cars[3]=capacity of first car
+cars[4]=luggage boot size of first car
+cars[5]=estimated safety of first car
+cars[6]=buying price of second car
+cars[7]=maintenance price of second car
+cars[8]=number of doors of second car
+cars[9]=capacity of second car
+cars[10]=luggage boot size of second car
+cars[11]=estimated safety of second car
+...
+
+
+and so on. We know that we have 6 attributes so first 6 items of list will be related to object 1, next 6 items will be related to object 2 and so on. But what will happen if we want to add or delete some attribute later? we will have to shift the elements of list. It will be difficult to manage the list in this way. A better approach is to make a list of lists, called as nested list.
+
+cars=[]
+cars[0]=[buying price, maintenance price,number of doors, capacity, estimated safety]
+cars[1]=[buying price, maintenance price,number of doors, capacity, estimated safety]
+.....
+
+Once we have decided our data structure, then we will process our data. To process data in a list we use index which always starts from zero (0). So to process first car we will use cars[0], to process fifth car we will use cars[4] and so one. But what if we want to perform some operation on all cars. Let suppose we want to display buying price of all cars. Here we have 1700 records of cars. So our code will be
+print(cars[0][0])
+print(cars[1][0])
+print(cars[2][0])
+print(cars[3][0])
+......
+print(cars[1698][0])
+print(cars[1699][0])
+
+Write 1700 print statment???
+
+A better approach is to run a loop. When we have to repeat same set of instructions multiple times we use loops.
+
+for car in cars:
+	print(car)
+
+
+Thats it! "in" keyword takes each item from cars list one by one and assigns it in car variable. Then we can use this variable in any way we want. The body of loop is usually indented with minimum four spaces. To make the concept more clear we have another example. 
+
+N= 10
+print("Square of Numbers from 0 to 9")
+for num in range(N):
+	print(num**2)
+print("Done!")
+
+
+range function is used to generate a sequence of numbers, by default starts from zero and increment with one. So it will generate numbers from 0 to 9. Double asteriks (**) means power. Here loop will iterate each number one by one and displays its power. Note that the last print statment will be run once only because it is outside the body of for loop.
+
+output
+
+Square of Numbers from 0 to 9
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+Done!
+
+With for loop we have some other loops too. One of the loop is while. It runs around a condition. The loop keep continue until the condition is true and gets terminated when the condition becomes false. 
+
+i=10
+while i>1:
+	i = i-1
+	print(i)
+
+output
+
+9
+8
+7
+6
+5
+4
+3
+2
+1
+________________________________________________________________________________________
+
+
+
+-______________________________________________________________________________________________________________________________
+As we usually store our data in a file, we will now open the file to read and load data in a list to perform some processing steps on it. A file is a collection of data. The data may be of different types. The extension of file tells us about the content of file e.g. if a file has extension .doc, it means it is a document. similarly .dat or .data shows that the file contains rows and columns of data, .csv means a file with comma separated values and so on.
+Now we are dealing with a dataset which contains the data of some hapatitis patients. The source of data is https://archive.ics.uci.edu/ml/datasets/Hepatitis. It contains different tests results applied on patients of different ages. Data File is in csv format.A file can be opened in any specific mode. We have different modes to open a file including(r, w, a, r+, w+, ...). To read a file we open it in r mode.
+
+list_of_patients=[]
+patient=[]
+with open('hepatitis.csv','r') as input:
+	for reader in input:
+		#rstrip to remove \n character
+		reader = reader.rstrip()
+		patient= reader.split(',')
+		list_of_patients.append(patient)
+
+for pt in list_of_patients:
+	print(pt)
+
+
+
+Now we have load our data from file to memory, in our data structure "list_of_patients".Now it is ready for visualization. we can make different type of plots like line plot, surface plot, pie plot, scatter plot and so on. To plot something we need libraries. A library is a collection of components in a ready to use format. There are Standard libraries of python as well as user defined libraries. Standard libraries provides extensive facilities for many operations. Some of python libraries are math, numpy, os, csv, matplotlib and so on. Math library provides all of the functions of math which we can use in our python code like sqrt, sin, cos etc. Similarly numpy provides modules to deal with numeric arrays. To plot our graphs we need matplotlib library. By importing a library in our code all of the functionality of that library is made available to us. Using matplotlib we can make different types of plots to visualize our data. 
+
+Here we are plotting the ratio of bilirubin in the patients of hepatitis w.r.t their ages. To plot this we need two columns of data from our data set; age and bilirubin.
+We will extract this data from our lists and insert into a new one to plot. 
+
+#line plot
+age=[]
+bilirubin=[]
+import matplotlib.pyplot as plt
+
+for i in range(len(list_of_patients)):
+	age.append(list_of_patients[i][0])
+	bilirubin.append(list_of_patients[i][1])
+
+plt.plot(age, bilirubin)
+plt.xlabel('Age of Patient')
+plt.ylabel('Bilirubin Factor')
+plt.title('Scanning Patient Attributes...')
+plt.grid(True)
+plt.savefig("age_bilirubin.png")
+plt.show()
+
+The scatter plot for the above scenario.
+
+
+#scatter plot
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+ax.scatter(age, bilirubin, alpha=0.5)
+ax.set_xlabel('Age', fontsize=20)
+ax.set_ylabel('Bilirubin', fontsize=20)
+ax.set_title('Scanning Patient Attributes...')
+ax.grid(True)
+fig.tight_layout()
+
+plt.show()
+
+_______________________________________________________________________________________________________________________
+
+If you look at the resultant plot, it is a bit random. We can do it more better by applying some transformations on our data. We have different age gropus of patients from 4 to 90. Lets try to take average for each age group. To check age groups of patients we will put checks on our data. To implement check we use if conditions, which is more similar to our natural language. if this happens do this otherwise do that. In our scenario we will check if age of patients is in between 1 to 10 years or 11 to 20 years or 21 to 30 years and so on. After dividing them into groups we will take average of certain parameters. This is a familiar technique to refine our data.
+
+
+age_group=[]
+avg_factor=[]
+tmp = 0
+counter = 0
+for patient in range(len(list_of_patients)):
+	
+	if int(list_of_patients[patient][1]) >= 1 and int(list_of_patients[patient][1]) <= 10:
+		tmp = tmp + int(list_of_patients[patient][15])
+		counter = counter + 1
+		print(counter)
+age.append(10)
+avg.append(tmp/counter)
+
+The if condition used in above code is composite. There are two parts of condition. First one says that age of patient should be one or greater than one and the second one says that age should be ten or less than 10. <,>,<=,>=,==,!= are called as relational operators. They are used to compare values. "and" is logical operator that is used to combine two different conditions. "and" means if condition will be evaluate to true only when both condtions will be set to true. If any one condition fails, then if will be set to "false". 
+
+Here in this code we are searching for all rows having age in between 1 to 10 and taking the average of bilirubin factor. But what we have to do is to take average of each group of ages. years 1-10, 11-20, 21-30 and so on. For getting this behavior we will expand our condition further. For each possible age group add else if (elif) clause and finally add else. If no condition is true else will run.
+
+age_group=[]
+avg_factor=[]
+tmp1, tmp2, tmp3, tmp4, tmp5, tmp6, tmp7, tmp8 = 0, 0, 0, 0, 0, 0, 0, 0
+counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8 =  0, 0, 0, 0, 0, 0, 0, 0
+for patient in range(len(list_of_patients)):
+	
+	if int(list_of_patients[patient][1]) >= 1 and int(list_of_patients[patient][1]) <= 10:
+		tmp1 = tmp1 + int(list_of_patients[patient][15])
+		counter1 = counter1 + 1
+	elif int(list_of_patients[patient][1]) >= 11 and int(list_of_patients[patient][1]) <= 20:
+		tmp2 = tmp2 + int(list_of_patients[patient][15])
+		counter2 = counter2 + 1
+	elif int(list_of_patients[patient][1]) >= 21 and int(list_of_patients[patient][1]) <= 30:
+		tmp3 = tmp3 + int(list_of_patients[patient][15])
+		counter3 = counter3 + 1
+	elif int(list_of_patients[patient][1]) >= 31 and int(list_of_patients[patient][1]) <= 40:
+		tmp4 = tmp4 + int(list_of_patients[patient][15])
+		counter4 = counter4 + 1
+	elif int(list_of_patients[patient][1]) >= 41 and int(list_of_patients[patient][1]) <= 50:
+		tmp5 = tmp5 + int(list_of_patients[patient][15])
+		counter5 = counter5 + 1
+	elif int(list_of_patients[patient][1]) >= 51 and int(list_of_patients[patient][1]) <= 60:
+		tmp6 = tmp6 + int(list_of_patients[patient][15])
+		counter6 = counter6 + 1
+	elif int(list_of_patients[patient][1]) >= 61 and int(list_of_patients[patient][1]) <= 70:
+		tmp7 = tmp7 + int(list_of_patients[patient][15])
+		counter7 = counter7 + 1
+	else:
+		tmp8 = tmp8 + int(list_of_patients[patient][15])
+		counter8 = counter8 + 1
+		
+for i in range(10,90,10):
+	age_group.append(i)
+	
+avg_factor.append(tmp1/counter1)
+avg_factor.append(tmp2/counter2)
+avg_factor.append(tmp3/counter3)
+avg_factor.append(tmp4/counter4)
+avg_factor.append(tmp5/counter5)
+avg_factor.append(tmp6/counter6)
+avg_factor.append(tmp7/counter7)
+avg_factor.append(tmp8/counter8)
+
+
+
+Have a look at plot now. It is more readable.
+
+import matplotlib.pyplot as plt
+
+plt.plot(age_group, avg_factor)
+plt.xlabel('Age of Patient')
+plt.ylabel('Bilirubin Factor')
+plt.title('Scanning Patient Attributes...')
+plt.grid(True)
+plt.savefig("age_bilirubin.png")
+plt.show()
+
+
+__________________________________________________
+
+There are some situations where we have to repeat the same set of statements again and again. Suppose there are hundred students in a class. To prepare their result one will add marks of all subjects, total them, find percentage and then grade. Repeat the same task for one hundred students. In coding repeat the same statements again and again is not a good practice. Instead we create a function for repeated actions. We define a function once and we call it as many times as we want.
+
+There are two types of functions. Built-in functions provided by python libraries and user defined functions created by developers. To define a function we use def keyword followed by the name of function and then optional parameter list within parathesis. Here is an example. The function power as its name implies calculates the power of a given number.
+
+def power(num, pw):
+	result=1
+	for i in range(pw):
+		result=result*num
+	return result
+
+print(power(2,3))
+print(power(3,3))
+print(power(2,5))
+
+
+output
+8
+27
+32
+
+
+we can define a function without any argument and without return statement like this. 
+
+import datetime
+
+def info():
+	size_in_kbs = 6125
+	print("Today's date is",datetime.date.today())
+	print("File processing ......")
+	print("......................")
+	print("done")
+	print("The size of file in Mbs is",size_in_kbs/1000)
+	print("The size of file in Mbs is",size_in_kbs//1000)
+
+info()
+
+In python3 division with / always returns a float. To get an integer result use // instead. The output of the above code is.
+
+output
+
+Today's date is 2016-10-26
+File processing ......
+......................
+done
+The size of file in Mbs is 6.125
+The size of file in Mbs is 6
+
+
+
+Now to more organize our code we will rewrite it using functions. To calculate age groups and average of bilirubin factor we can write a function with two parameters. lb will be used to indicate the lower age limit for the group while ub will be used for upper age limit. Writing our code in this way it is more organized and efficient now.  
+
+
+def Calc_Age_Group(lb, ub):
+	
+	tmp, counter = 0 , 0
+	for patient in range(len(list_of_patients)):
+		if int(list_of_patients[patient][1]) >= lb and int(list_of_patients[patient][1]) <= ub:
+			tmp = tmp + int(list_of_patients[patient][15])
+			counter1 = counter1 + 1
+
+	age_group.append(ub)
+	avg_factor.append(tmp/counter)
+
+
+To call the function write 
+Calc_Age_Group(1,10)
+Calc_Age_Group(11,20)
+...
+Calc_Age_Group(71,80)
+
+
+The complete code to read data file, store data in memory, calculate average and then plot is:
+
+import matplotlib.pyplot as plt
+
+age_group=[]
+avg_factor=[]
+list_of_patients=[]
+def Read_File():
+	'''This function will be used to read a csv file and to load data in memory'''
+	
+	patient=[]
+	with open('hepatitis.csv','r') as input:
+		for reader in input:
+			#rstrip to remove \n character
+			reader = reader.rstrip()
+			patient= reader.split(',')
+			list_of_patients.append(patient)
+
+
+def Calc_Age_Group(lb, ub):
+	'''This function will calculate the average of each age group'''
+	tmp, counter = 0 , 0
+	for patient in range(len(list_of_patients)):
+		if int(list_of_patients[patient][1]) >= lb and int(list_of_patients[patient][1]) <= ub:
+			tmp = tmp + int(list_of_patients[patient][15])
+			counter = counter + 1
+
+	age_group.append(ub)
+	avg_factor.append(tmp/counter)
+	
+
+def Draw_Graph():
+	'''This function will be used to draw graph'''
+	plt.plot(age_group, avg_factor)
+	plt.xlabel('Age of Patient')
+	plt.ylabel('Bilirubin Factor')
+	plt.title('Scanning Patient Attributes...')
+	plt.grid(True)
+	plt.savefig("age_bilirubin.png")
+	plt.show()
+
+
+def main():
+	'''To control the processing of our code'''
+	Read_File()
+	Calc_Age_Group(1,10)
+	Calc_Age_Group(11,20)
+	Calc_Age_Group(21,30)
+	Calc_Age_Group(31,40)
+	Calc_Age_Group(41,50)
+	Calc_Age_Group(51,60)
+	Calc_Age_Group(61,70)
+	Calc_Age_Group(71,80)
+	Draw_Graph()
+
+main()
+
+Now having look at the code there is still some code that is repeating. Look at the line where we are calling our function Calc_Age_Group
+
+Calc_Age_Group(1,10)
+Calc_Age_Group(11,20)
+Calc_Age_Group(21,30)
+Calc_Age_Group(31,40)
+Calc_Age_Group(41,50)
+Calc_Age_Group(51,60)
+Calc_Age_Group(61,70)
+Calc_Age_Group(71,80)
+
+
+we can further refine our main function by putting these function calls in a for loop.
+
+def main():
+	'''To control the processing of our code'''
+	Read_File()
+	for idx in range(1,80,10):
+		print(idx, idx+9)
+		Calc_Age_Group(idx, idx+9)
+	Draw_Graph()
+
+
+Take a look at ''' in second line. This is called docstring. when write a string in this way, we can break it into multiple lines. write help(Read_File) on python prompt or through script will display these content on screen. We can provide description of the function and how to use it here.
+__________________________________________________________________________________________________________________
+
+Errors are a compulsory part of programming. There are different types of errors. Most of the time we deal with syntax errors. These are easy to find out and eliminate. The other types of errors encountered at run time.They are called as Exceptions. Whenever an error occurs in our programs Python gives us an error message, which provides useful information about error called traceback.
+
+
+Syntax Errors
+
+Each instruction which we write in our program has a defined syntax. If we fail to follow that particular syntax, an error occurs. Missing paraenthesis, comma, colon, spelling mistakes etc all are syntax errors. Syntax errors are usually catched during parsing. The traceback shown for such an error is like this
+
+def add(no):
+    sum=0
+    for n in no
+        sum = sum + n
+    print sum
+
+add([2,4,5,,8])
+
+  File "prg.py", line 3
+    for n in no
+              ^
+SyntaxError: invalid syntax
+
+
+This traceback gives us a lot of information about error.It gives us the name of file and the statement which contains errors. Location of the error that is indicated by a small ^ cap sign. This may be the same or preceding statement which causes error, the particular error type and line number. Here by reading this trackback we can find out that there is an error at the end of for statement. A colon(:) is missing at the end.
+
+Ok. now we have add the colon at the end of for statment. To find and remove an error from our code is called debugging. Run the code again will give us a new error now.
+
+File "prg.py", line 5
+    print sum
+            ^
+SyntaxError: Missing parentheses in call to 'print'
+
+parenthesis while using print statement in python3 are mandatory. We can eliminate this error by enclosing sum into parenthesis.
+But there is one more error left. By running the code again we will get the following error. 
+
+File "prg.py", line 7
+    add([2,4,5,,8])
+               ^
+SyntaxError: invalid syntax
+
+This is a typing mistake, removing one comman from here will remove this error. Now by running our code we will get the final result.
+
+
+def add(no):
+    sum=0
+    for n in no:
+        sum = sum + n
+    print (sum)
+
+add([2,4,5,8])
+
+
+output
+19
+
+
+Exceptions
+When we remove all syntax errors from our program it starts to run but there are some errors than can occur during execution. They are called as Exceptions. We can have many types of exceptions like file not found error, division by zero error, cannot convert into float error, name not defined error and so on.
+
+Here we have a csv(comma separated values) file "std_marks.csv" which contains ID no of students and their marks. 
+
+1011,34,40,30,48
+1012,42,40,45,41
+1013,35,39,28,41
+1014,30,40,37,41
+1015,38,36,41,41
+1016,42,46,45,42
+1017,36,40,38,46
+1018,30,40,37,32
+1019,25,29,36,30
+1020,38,36,33,34
+
+To read this file and to find out the total of marks for each student we have a program but there are some exceptions inside this code.
+
+
+
+
+
