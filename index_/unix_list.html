@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+
+
+
+		<div class="row">
+			<div class="container page-header alert-info">
+				<h1> Unix </h1>
+			</div>
+		</div>
+
+		
+
+
+	  	<div ng-bind="section1"></div>
+		
+		<br><br>
+		
+		
+		<div class="panel panel-danger">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Prerequisites</div>
+			<div><p> Basic operations to operate computer system are required.</p>
+		</div>
+		</div> <br><br>
+		<div class="panel panel-success">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Unix</div>
+
+			  <!-- Table -->
+			  <table class="table">
+			    <thead>
+			      <tr>
+				<th>Sr</th>
+				<th>Lecture</th>
+				<th>Link</th>
+				
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+				<td>1</td>
+				<td>Introduction</td>
+				<td><a href="../unix lectures/01-intro.html"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr>
+			      <tr>
+				<td>2</td>
+				<td>Files</td>
+				<td><a href="../unix lectures/02-files.html"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr>
+			      <tr>
+				<td>3</td>
+				<td>Common Commands</td>
+				<td><a href="../unix lectures/03-commands.html"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr>
+			      <tr>
+				<td>4</td>
+				<td>Redirection</td>
+				<td><a href="../unix lectures/04-redirection.html"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr> 
+			      <tr>
+				<td>5</td>
+				<td>Performance</td>
+				<td><a href="../unix lectures/05-performance.html"><span class="glyphicon glyphicon-new-window"></span> </a></td>
+				
+			      </tr> 
+
+			  </table>
+		</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+	<script src="../js/angular.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery.min.js"></script>
+	
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "UNIX is an operating system which was first developed in the 1960s, and has been under constant development ever since. By operating system, we mean the suite of programs which make the computer work. It is a stable, multi-user, multi-tasking system for servers, desktops and laptops.UNIX systems also have a graphical user interface (GUI) similar to Microsoft Windows which provides an easy to use environment.";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>
