@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Unix</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<style>
+	span {
+		box-shadow: 10px 10px 5px #888888;
+	}
+	img{
+		box-shadow: 2px 2px 2px yellow;
+	}
+	</style>
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Redirection: Input and Output </h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. Redirection of input and output </p>
+					<p>2. Pipes and Filters </p>
+					<p>3. Wild Cards </p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 15 min</li>
+					<li class="list-group-item">Exercises : 3</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div ng-bind="section1"></div>
+		
+		<br><br>
+		
+		<div>
+			<h4><span class="label label-warning">Redidrecting Output</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			
+			<p> The cat (short for “concatenate“) command is one of the most frequently used command in Unix. cat command allows us to create single or multiple files, view content of file, concatenate files and redirect output in terminal or files. </p>
+			<p> We use the > symbol to redirect the output of a command. cat <i>filename </i> displays the contents of a file on screen. we can move this output in a file rather than to be displayed on screen</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ <strong> cat bk.txt </strong><br> 
+				This is backup data file <br>
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+
+		<div>
+			
+			
+			<p> Now to send the output of cat command to a file rather than on screen use command as follows. This will send the output of bk.txt file to a new file named backup.txt </p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ <strong> cat bk.txt > backup.txt </strong><br>
+				$ cat backup.txt <br>
+				This is backup data file 
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+
+		<div>
+			
+			
+			<p> We can also append in the file using  >>  operator. it takes input and append in the end of file. </p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ <strong> cat >> backup.txt </strong> <br> 
+				Receive complete backup <br>
+				<i>press ctrl+D to exit from input mode.  </i><br><br>
+				$ cat backup.txt <br>
+				This is backup data file <br>
+				Receive complete backup
+  			</div>
+		</div>
+
+		<br><br>
+
+				
+
+
+
+
+		
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				<br> <br>
+				<img src="../images/cat.jpg" class="img-rounded" alt="" width="600" height="150">
+  			</div>
+		</div>
+
+
+		<br><br>
+
+		<div>
+			<h4><span class="label label-warning">Redidrecting Input</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			
+			<p> We use the "<" operator to redirect the input of a command. Here we have created a list of fruits in a text file and pass this file to sort 		command which will sort the text in alphabetical order. Here in the output we have displayed the unsorted list first using cat command and then sorted 			list using sort command</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				$cat list <br>
+				mango <br>
+				apple <br>
+				banana <br>
+				papaya <br>
+				watermelon <br>
+				apricot <br>
+				
+
+				<img src="../images/cat2.jpg" class="img-rounded" alt="" width="600" height="150">
+				
+  			</div>
+		</div>
+
+		<br><br>
+		<div>
+			
+			<p> To send the output of sort command in a new text file rather than being displayed on screen, we can use input and output redirection 				simultanously</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				$sort < list > sortedlist <br><br>
+				
+				
+
+				<img src="../images/ioredirect.jpg" class="img-rounded" alt="" width="600" height="170">
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div class = "panel panel-primary">
+      
+		      <div class = "panel-heading">
+			 <h4 class = "panel-title">
+			    <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseTwo">
+			       Suppose we have two lists of numbers stored in two different text files. we want to create a new text file having sorted list of numbers 					contained in both files. How to do that?
+			    </a>
+			 </h4>
+		      </div>
+		      
+		      <div id = "collapseTwo" class = "panel-collapse collapse">
+			 <div class = "panel-body">
+				       $ sort list1 list2 > combinelist  <br>
+			
+			 </div>
+		      </div>
+		      
+		</div>
+		<br><br>
+
+		<div>
+			<h4><span class="label label-warning">Pipes</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			
+			<p>
+		
+		
+			The symbol | is the Unix pipe symbol that is used on the command line. What it means is that the standard output of the command to the left of 				the pipe gets sent as standard input of the command to the right of the pipe. Note that this functions a lot like the > symbol used to redirect 			the standard output of a command to a file. However, the pipe is different because it is used to pass the output of a command to another command, 				not a file. 
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				Here the output of cat command is passed to wc command. Now we can not find the output of cat command on screen. What we will see is 					the output of the last command which is wc. The wc command counts the no. of lines, words and characters in a file <br><br>
+				
+				
+
+				<img src="../images/pipe.jpg" class="img-rounded" alt="" width="600" height="80">
+				
+  			</div>
+		</div>
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+		
+		
+			The grep command is used to find some text in file. Here we are searching "apple" in file list.
+			</p>
+		</div>
+		<br>
+
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				<img src="../images/grep1.jpg" class="img-rounded" alt="" width="600" height="80">
+				
+				
+  			</div>
+		</div>
+		
+		<br>
+		
+
+		<div class = "panel panel-primary">
+	      
+		      <div class = "panel-heading">
+			 <h4 class = "panel-title">
+			    <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseThree">
+			       Use grep command to find files that are modified in the month of september and sort the files.
+			    </a>
+			 </h4>
+		      </div>
+		      
+		      <div id = "collapseThree" class = "panel-collapse collapse">
+			 <div class = "panel-body">
+				       $ ls -l | grep "Aug" | sort <br>
+					
+			 </div>
+		      </div>
+	      
+	   	</div>
+
+		
+
+		<br><br>
+
+		<div>
+			<h4><span class="label label-warning">Wild Cards</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			
+			<p>
+		
+		
+			The characters * and ? are wild cards. * represents zero or more characters while ? represents exactly one character. To find all files starting with the letter "l" we can use * wild card as follows:
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ ls l* 
+				<br><br>
+				
+				
+
+				<img src="../images/ls*.jpg" class="img-rounded" alt="" width="600" height="80">
+				
+  			</div>
+		</div>
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				some more examples here 
+				<br><br>
+				
+				
+
+				<img src="../images/wildlist.jpg" class="img-rounded" alt="" width="600" height="200">
+				
+  			</div>
+		</div>
+		<br><br>
+
+
+		<br><br>
+
+		<div>
+			<h4><span class="label label-warning">Filters</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			
+			<p>
+		
+		
+			A filter is a Unix command that does some manipulation of the text of a file. Two of the most powerful and popular Unix filters are the sed and awk commands. Here is a simple way to use the <strong>sed</strong> command to manipulate the contents of the apple.txt file. First we have displayed the contents of lists.txt file then in the second command we passed the contents of lists.txt file to sed command, which replaced first occurance of e in each line with WWW and displayed output on screen. In the second run of sed command we have made all ocurrances of e as J by adding /g switch to the sed command. 
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ cat lists.txt <br>
+				core <br>
+				worm seed <br>
+				jewel <br><br>
+				$ cat apple.txt | sed -e "s/e/WWW/" <br>
+				corWWW <br>
+				worm sWWWed <br>
+				jWWWwel <br><br>
+				$ cat apple.txt | sed -e "s/e/J/g"<br>
+				corJ<br>
+				worm sJJd<br>
+				jJwJl<br>
+				$  
+				
+  			</div>
+		
+		</div>
+		<p> Note that sed command doesn't do any change in the file. It only do changes in display.</p>
+		<br><br>
+				<div>
+			
+			<p>
+		
+		
+			<strong> awk </strong> is another powerful filter. We can use awk to manipulate the contents of a file. Here is an example. In the first command contents of class.txt are displayed. Then in the second command we have passed the contents of class.txt to the awk command using pipe. awk command uses = as a separator and it prints all text before = appears in each line. In third command similarly we took all text after =.
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ cat class.txt <br>
+				001 = John<br>
+				002 = Essa <br>
+				003 = Faran <br>
+				004 = Tim <br> <br>
+				
+				$ cat class.txt | awk -F= '{print $1}' <br>
+				001 <br>
+				002 <br>
+				003 <br>
+				004 <br><br>
+				                
+				$ cat class.txt | awk -F= '{print "Student: " $2}'<br>
+				HAS:  John<br>
+				HAS:  Essa<br>
+				HAS:  Faran<br>
+				HAS:  Tim<br>
+				
+
+				
+  			</div>
+		</div>
+		<br><br>
+
+
+
+<!-- Exercises -->
+
+<div class = "panel panel-primary">
+      
+      <div class = "panel-heading">
+         <h4 class = "panel-title">
+            <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseO">
+               How to display files having "o" in between their names.
+            </a>
+         </h4>
+      </div>
+      
+      <div id = "collapseO" class = "panel-collapse collapse">
+         <div class = "panel-body">
+                       $ ls *o* <br>
+         </div>
+      </div>
+      
+   </div>
+
+
+
+
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p></p>
+  <p> Next >> <a href="05-performance.html"> Performance </a></p>
+  <p></p>
+</div>
+
+ 
+
+	</div><!-- /.container-fluid -->
+
+
+
+	
+	<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Redirection refers to execution of two or more commands at a time. while one command is providing input to the other command";
+	    		
+			$scope.listfiles = "usr		programs	name.txt\n\rdocuments	videos		car.png <br>images	equation.py	notes.odt";
+
+			$scope.dirstrr = "In the diagram above, we see that their is a home directory named root which contains three sub-directories (products, 				resources and services).The full path to the directory monitor is /root/products/computer/monitor";
+
+			$scope.terminalstart = "To run commands or scripts we need a terminal. To start type Terminal in search box and press enter.";
+
+			$scope.pathlst1 = "A relative path specifies a location starting from the current location. for example if we are at computers directory then to 				access monitor directory the path will be /monitor only";
+
+			$scope.pathlst2 = "An absolute path specifies a location from the root of the file system. The absolute path of folder monitor is 				/root/products/computer/monitor";
+
+			$scope.shellprompt = "The Shell prompt is indicated by a $ sign. It is an indication that OS is ready to accept the commands. Whenever we provide 				some command here it is executed by the shell. It may be displayed by some other character like % or some thing else.It depends on your computer 				settings. The shell’s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be 				used to access networked machines. The shell’s main disadvantages are its primarily textual nature and how cryptic its commands and operation can 				be.";
+			
+		}); 
+	</script>
+
+</body>
+</html>

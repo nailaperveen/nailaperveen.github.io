@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Unix</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Unix Introduction</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. To increase the basic knowledge about OS</p>
+					<p>2. To learn shell</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 5 min</li>
+					<li class="list-group-item">Exercise : None</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div ng-bind="section1"></div>
+		
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">Operating System</span></h4>
+			<p ng-bind="section2"></p>
+		</div>
+
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">What is Unix</span></h4>
+			<p ng-bind="section3"></p>
+		</div>
+
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">Unix Architecture</span></h4>
+			<p ng-bind="architecture"></p>
+			<img src="../images/arc.jpg" class="img-rounded center-block" alt="unix architecture" width="304" height="280">
+			<p></p>
+			<ul class="list-group">
+				<li class="list-group-item" ng-bind="archlst1"></li>
+				<li class="list-group-item" ng-bind="archlst2"></li>
+				<li class="list-group-item" ng-bind="archlst3"></li>
+				<li class="list-group-item" ng-bind="archlst4"></li>
+				   
+			</ul>
+		</div>
+
+	<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+	  <p></p>
+	  <p> Next >> <a href="02-files.html"> Unix Files </a></p>
+	  <p></p>
+	</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Computers play many important roles in society, helping to promote communication and interaction with others as well as 				providing users a way to shop, play games and have access to education. Additionally, computers provide a convenient way to create and store 				valuable information along with media and files, making them particularly useful for businesses. To work on a computer we need an operating 				system which manages all of the basic resources of the computer system including all hardware and software resources.";
+	    		
+			$scope.section2 = "An operating system (OS) is system software that manages computer hardware and software resources and provides common services 						for computer programs. All computer programs, excluding firmware, require an operating system to function.";
+
+			$scope.section3 = "UNIX is an operating system which was first developed in the 1960s, and has been under constant development ever since. By 				operating system, we mean the suite of programs which make the computer work. It is a stable, multi-user, multi-tasking system for servers, 				desktops and laptops.UNIX systems also have a graphical user interface (GUI) similar to Microsoft Windows which provides an easy to use 			environment. However, knowledge of UNIX is required for operations which aren't covered by a graphical program.";
+
+			$scope.architecture = "Here is a basic block diagram of a UNIX system. The main concept that unites all versions of UNIX is the following four 				basics −";
+
+			$scope.archlst1 = "Kernel: The kernel is the heart of the operating system. It interacts with hardware and most of the tasks like memory 				management, task scheduling and file management.";
+
+			$scope.archlst2 = "Shell: The shell is the utility that processes your requests. When you type in a command at your terminal, the shell 			interprets the command and calls the program that you want. The shell uses standard syntax for all commands. C Shell, Bourne Shell and Korn Shell 				are most famous shells which are available with most of the Unix variants.A shell is a program like any other. What’s special about it is that 				its job is to run other programs rather than to do calculations itself. The most popular Unix shell is Bash, the Bourne Again SHell (so-called 				because it’s derived from a shell written by Stephen Bourne). Bash is the default shell on most modern implementations of Unix and in most 				packages that provide Unix-like tools for Windows.";
+
+			$scope.archlst3 = "Commands and Utilities: There are various command and utilities which you would use in your day to day activities. cp, mv, cat 				and grep etc. are few examples of commands and utilities. There are over 250 standard commands plus numerous others provided through 3rd party 				software. All the commands come along with various optional options.";
+
+			$scope.archlst4 = "Files and Directories: All data in UNIX is organized into files. All files are organized into directories. These directories 			are organized into a tree-like structure called the filesystem.";
+		});
+	</script>
+
+</body>
+</html>

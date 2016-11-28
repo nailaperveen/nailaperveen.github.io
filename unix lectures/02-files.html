@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Unix</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Files and Processes</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. To Explain how to organize data on computer </p>
+					<p>2. To Show the difference between files and directories</p>
+					<p>3. To Explain what is path of file</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 10 min</li>
+					<li class="list-group-item">Exercise : 2</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div ng-bind="section1"></div>
+		
+		<br><br>
+		
+		<div>
+			<h4><span class="label label-warning">The Directory Structure</span></h4>
+			<p ng-bind="dirstr"></p>
+			<img src="../images/dir.jpg" class="img-rounded center-block" alt="unix architecture" width="500" height="500">
+			
+			<p ng-bind="dirstrr"></p>
+			<ul class="list-group">
+				<li class="list-group-item" ng-bind="pathlst1"></li>
+				<li class="list-group-item" ng-bind="pathlst2"></li>
+				
+			</ul>
+		</div>
+
+		<br><br>
+
+		<div class="alert alert-danger" role="alert"> Start a Unix Terminal: 
+		<p ng-bind="terminalstart"><p>
+		</div>
+
+
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">Shell Prompt</span></h4>
+			<p ng-bind="shellprompt"></p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ 
+  			</div>
+		</div>
+
+		<br><br>
+		<div>
+			
+			<p>Now we will try to run some simple UNIX commands. write whoami on prompt and press Enter. See what happened</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ whoami <br>
+				esha
+  			</div>
+		</div>
+
+		<div>
+			
+			<p>This command returns the name of the user. Here in this case we are assuming that the user name of this computer is esha. Now we try 
+				to find our current location by using command pwd. pwd stands for print working directory. It gives us the current directory where we are 				working now.
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ pwd <br>
+				/home/esha
+  			</div>
+		</div>
+
+		<div>
+			
+			<p>by default this is the home directory for user esha. 
+			</p>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p>To see the current date and time we can use date command
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ date <br>
+				Wed Sep 21 14:58:25 GST 2016
+
+  			</div>
+		</div>
+		<br><br>
+
+
+		<div>
+			
+			<p>To clear the contents of the screen use clear command. It will erase all from the screen except the $ prompt.
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ clear <br>
+				
+
+  			</div>
+		</div>
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">Process</span></h4>
+			<p >
+				When we execute a program on a UNIX system, the system creates or starts, a new process for that program. for example when we run whoami command to find the name of the system user, a new process is started. Operating system provides a unique identity to each process known as pid or process ID. A process, in simple terms, is an instance of a running program.
+
+			</p>
+
+			<p >
+				
+				To find out how many processes are running at any time we can use ps command
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ ps<br>
+
+				 PID &nbsp;&nbsp; TTY &nbsp;&nbsp;         TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CMD<br>
+ 				 05479 pts/17   00:00:00 bash<br>
+				 14357 pts/17   00:00:00 ps<br>
+
+  			</div>
+		</div>
+
+		<br><br>
+		<div>
+			
+			<p> We can run process in background or in foreground. By default each process runs as foreground process that is it takes its input from keyboard and sends its output to the monitor. While a foreground process is in progress we can not run any other command until it ends. For long processes it wastes resources. The advantage of running a process as background is that we can perform other tasks too.</p>
+
+		<p> To run a proces as background we add & at the end.
+		</div>
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ ls & <br>
+
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p> 
+				To terminate a foreground process we can press ctrl+c. But to terminate a background process we first need to find out the  id of that process using ps command and then we can use kill command to terminate it.			
+			</p>
+		</div>
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ ps <br>
+				PID &nbsp;&nbsp; TTY &nbsp;&nbsp;         TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CMD<br>
+ 				 05479 pts/17   00:00:00 bash<br>
+				 14357 pts/17   00:00:00 ps<br>
+				 12349 pts/17   00:00:00 first-ps<br>
+				 18351 pts/17   00:00:00 second-ps<br>
+				<br>
+				$ kill 12349
+
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p> 
+				If a process ignores regular kill command then we can use -9 switch to kill it.			
+			</p>
+		</div>
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				$ kill -9 12349
+				Terminated
+  			</div>
+		</div>
+
+		<br><br>
+
+
+		
+		<div>
+			<h4><span class="label label-warning">Parent and Child Processes</span></h4>
+			<p >
+				Each unix process has two ID numbers assigned to it: Process ID (pid) and Parent process ID (ppid). Each user process in the system has a parent process.
+
+Most of the commands that we run have the shell as their parent. Run ps -f command which lists both process ID and parent process ID.
+			</p>
+		</div>
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				$ ps -f<br>
+				UID        &nbsp;&nbsp;PID &nbsp;&nbsp; &nbsp;PPID  C STIME TTY &nbsp;        TIME &nbsp;CMD<br>
+user     05479  4642  0 Aug28 pts/17   00:00:00 bash<br>
+user    20820  5479  0 14:46 &nbsp;pts/17   00:00:00 ps -f<br>
+
+  			</div>
+		</div>
+
+		<br><br>
+
+
+		<div>
+			<h4><span class="label label-warning">The Top Command</span></h4>
+			<p >
+				It is an interactive diagnostic tool that updates frequently and shows information about physical and virtual memory, CPU usage and load averages.
+			</p>
+		</div>
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				$ top <br>
+				top - 14:54:31 up 24 days,  6:04,  1 user,  load average: 0.17, 0.15, 0.21 <br>
+Tasks: 432 total,   2 running, 402 sleeping,   0 stopped,  28 zombie <br>
+%Cpu(s):  3.4 us,  1.2 sy,  0.0 ni, 95.3 id,  0.1 wa,  0.0 hi,  0.0 si,  0.0 st <br>
+KiB Mem :  8081560 total,  1870580 free,  3624820 used,  2586160 buff/cache <br>
+KiB Swap:  8285180 total,  5035464 free,  3249716 used.  3247132 avail Mem  <br>
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND <br>     
+   
+ 8985 root      20   0  201524   1976      0 S   0.3  0.0 133:00.54 chrome <br>
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+
+
+
+
+
+<!--Exercise-->
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+				Run ls command to see the output
+			</a>
+		</div>
+		<div class="collapse" id="collapseExample">
+			<div class="well">
+		    		print all lists
+			</div>
+		</div>
+		
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+				Run <strong> who </strong> command to see the output
+			</a>
+		</div>
+		<div class="collapse" id="collapseExample2">
+			<div class="well">
+		    		The output of who command is similar to whoami. Both return the name of the user.
+			</div>
+		</div>
+		
+
+
+
+
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p></p>
+  <p> Next >> <a href="03-commands.html"> Unix Commands </a></p>
+  <p></p>
+</div>
+
+ 
+
+	</div><!-- /.container-fluid -->
+
+
+
+	
+	<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Everything in UNIX is either a file or a process. A process is an executing program identified by a unique PID (process 				identifier). A file is a collection of data. They are created by users using text editors, running compilers etc. A file usually have an 				extension to show the type of data it contains. Examples of files: a document (report, essay etc.), the text of a program written in some 				high-level programming language instructions comprehensible directly to the machine and incomprehensible to a casual user, for example, a 				collection of binary digits (an executable or binary file); a directory, containing information about its contents, which may be a mixture of 				other directories (subdirectories) and ordinary files. ";
+	    		
+			$scope.dirstr = "All the files are grouped together in the directory structure. The file-system is arranged in a hierarchical structure, like 				an inverted tree. The top of the hierarchy is traditionally called root (written as a slash / ). To access home or root directory we usually 				write /home/user-name";
+
+			$scope.dirstrr = "In the diagram above, we see that their is a home directory named root which contains three sub-directories products, 				resources and services, which in turn contains other sub directories.To access a directory we will follow the complete path started from root. Such as the full path to the directory monitor is /root/products/computer/monitor";
+
+			$scope.terminalstart = "To run commands or scripts we need a terminal. To start type Terminal in search box and press enter.";
+
+			$scope.pathlst1 = "A relative path specifies a location starting from the current location. for example if we are at computers directory then to 				access monitor directory the path will be /monitor only";
+
+			$scope.pathlst2 = "An absolute path specifies a location from the root of the file system. The absolute path of folder monitor is 				/root/products/computer/monitor";
+
+			$scope.shellprompt = "The Shell prompt is indicated by a $ sign. It is an indication that OS is ready to accept the commands. Whenever we provide 				some command here it is executed by the shell. It may be displayed by some other character like % or some thing else.It depends on your computer 				settings. The shell’s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be 				used to access networked machines. The shell’s main disadvantages are its primarily textual nature and how cryptic its commands and operation can 				be.";
+			
+		}); 
+	</script>
+
+</body>
+</html>

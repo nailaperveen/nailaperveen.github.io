@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Unix</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<style>
+	span {
+		box-shadow: 10px 10px 5px #888888;
+	}
+	img{
+		box-shadow: 2px 2px 2px yellow;
+	}
+	</style>
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Performance </h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. File Permissions </p>
+					<p>2. Environment and Shell Variables </p>
+					<p>3. Repetitive Tasks </p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 15 min</li>
+					<li class="list-group-item">Exercises : 1</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div ng-bind="section1"></div>
+		
+		<br><br>
+		
+		<div>
+			<h4><span class="label label-warning">File Permission</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			
+			<p> Unix provides the security of files by setting permissions for them. Each Unix file has owner, group and others permission to access the file. We can see the permissions of files using ls-l command. It shows a string like this before the name of each file<br><strong> -rwxr-xr-- </strong> Where r stands for reading permission, w for writing permission and x for execution permission. The first character indicates the type of file. 2-4 characters show the owner permissions, 5-7 for group permissions, and 8-10 show permissions for others. Here in this case the owner has all three read, write and execute permissions, group has read and execute permissions and all others have only reading permissions. We can change these permissions at any time using chmod command.</p>
+
+<p> suppose we have a file title with permissions -rwxrwxr-- </p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ <strong> ls -l </strong><br> 
+				-rwxrwxr--  1 user   user 200  Sep 21 00:50  title <br><br>
+				
+				
+				$ <strong> chmod g-w title</strong><br> 
+				-rwxr-xr--  1 user   user 200  Sep 21 00:50  title <br><br>
+
+				$ <strong> chmod o+wx title</strong><br> 
+				-rwxr-xrwx  1 user   user 200  Sep 21 00:50  title <br><br>
+
+				$ <strong> chmod 777 title</strong><br> 
+				-rwxrwxrwx  1 user   user 200  Sep 21 00:50  title <br><br>
+  			</div>
+		</div>
+
+		<br><br>
+
+
+
+		<div>
+			<h4><span class="label label-warning">Environment Variables </span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			
+			<p> Standard UNIX variables are split into two categories, environment variables and shell variables. Shell variables apply only to the current instance of the shell and are used to set short-term working conditions; environment variables have a farther reaching significance, and those set at login are valid for the duration of the session. By convention, environment variables have UPPER CASE and shell variables have lower case names. Example of an environment variable</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				$echo $OSTYPE  <br>
+				linux-gnu	<br>
+
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			<h4><span class="label label-warning">Shell Variables </span></h4>
+			
+		</div>
+		<br><br>
+		<div>
+			
+			<p> An example of shell varaible is history. history variable is used to show a list of all commands that have been entered before. It is set to 100 by default, but you can increase this if you wish. </p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				$history <br>
+				279  mkdir -p softwares/drawing/Edit <br>
+				  280  ls <br>
+				  281  cd softwares/ <br>
+				  282  ls <br>
+				  283  cd drawing/ <br>
+				  284  ls <br>
+				  285  cd <br>
+				  286  pid <br>
+				  287  ps <br>
+				  288  ls <br>
+				  289  whereis files <br>
+				  290  whereis python <br>
+				  291  whereis unix <br>
+				  292  clear <br>
+				  293  ls-l <br>
+				  294  ls -l <br>
+				  295  echo $OSTYPE <br>
+				<br>
+				
+				
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p> We can also re-run a command from history if we know the command index. From the above history list we can get the type of OS by running command like this </p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				
+				  !295 <br>
+				<br>
+				
+				
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		
+
+		<div>
+			<h4><span class="label label-warning">Perform Multiple Operations at Once</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			
+			<p>
+		
+		
+			Sometimes we need to perform multiple operations at once like copying or removing multiple files or performing the same steps on a data set several times. To accomplish such tasks we repeat our code several times. like <br>
+
+
+
+			</p>
+		</div>
+
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				
+			cp file1.txt<br>
+			cp file2.txt<br>
+			cp file3.txt<br><br>
+				
+				
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			<p>	
+			we can also write this command on one single line like this<br>
+			</p>
+		</div>
+
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				
+			cp file1.txt file2.txt file3.txt<br><br>
+			
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			<p>
+			we can also copy all three files using wild card in our command like this <br>
+
+			</p>
+		</div>
+
+
+		
+			
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				
+			cp *.txt <br><br>
+			
+  			</div>
+		</div>
+		<div>
+			<p>
+			but what if we want to copy the three files with different filenames.
+
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				
+			cp file1.txt file2.txt file3.txt bkfile1.txt bkfile2.txt bkfile3.txt<br><br>
+			
+  			</div>
+		</div>
+			
+
+		<div>
+			<p>
+			This command will throw an error rather than copying file1.txt with name bkfile1.txt and similarly others.<br>
+			Here now we can iterate our tasks using for loop. Whenever for keyword encounters the shell consider this as a repetitive task to be performed.<br>
+			
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				for itr in file1.txt file2.txt file3.txt<br>
+				do<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;cp $itr bk$itr<br>
+				done<br><br>
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+		
+		
+			Now it will copy all three files with new filenames.
+			</p>
+		</div>
+		<br>
+		<div>
+			<h4><span class="label label-warning">Setting path variable</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			<p>
+			path (or PATH) variable defines in which directories the shell will look to find the executable files for command that we entered. Sometimes we see an error message like command not found. This error is because either the command is not installed or its path is not set. Rather than overwrite this variable everytime, we only append paths for new commands. Sometimes system add path of new commands automatically and sometime we need to add it. We use export command to add our path.
+			
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+				export PATH=$PATH:/path/to/dir
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+		
+<!-- Exercises -->
+
+<div class = "panel panel-primary">
+      
+      <div class = "panel-heading">
+         <h4 class = "panel-title">
+            <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseO">
+               Run a loop with three files and count words in each file.
+            </a>
+         </h4>
+      </div>
+      
+      <div id = "collapseO" class = "panel-collapse collapse">
+         <div class = "panel-body">
+                       for itr in file1.txt file2.txt file3.txt<br> 
+			&nbsp;&nbsp;&nbsp;&nbsp;do<br> 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wc $itr<br> 
+			&nbsp;&nbsp;&nbsp;&nbsp;done<br> 
+
+         </div>
+      </div>
+      
+   </div>
+
+
+
+
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p></p>
+  <p> Back >> <a href="../index_/unix_list.html"> Unix Lectures </a></p>
+  <p></p>
+</div>
+ 
+
+	</div><!-- /.container-fluid -->
+
+
+
+	
+	<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "";
+	    		
+			
+		}); 
+	</script>
+
+</body>
+</html>

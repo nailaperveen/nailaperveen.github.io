@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Unix</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<style>
+	span {
+		box-shadow: 10px 10px 5px #888888;
+	}
+	img{
+		box-shadow: 2px 2px 2px yellow;
+	}
+	</style>
+        <link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Common Commands </h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. Creation, deletion, updation, renaming of files </p>
+					<p>2. View and edit the contents of files </p>
+					<p>3. Using directories and files</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 15 min</li>
+					<li class="list-group-item">Exercises : 3</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div ng-bind="section1"></div>
+		
+		<br><br>
+		
+		<div>
+			<h4><span class="label label-warning">The Files</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		<div>
+			
+			<p> To list all the existing files and directories we use ls command. ls stands for listing. </p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ ls <br> <br>
+				<img src="../images/list.jpg" class="img-rounded" alt="detail list of files" width="600" height="50">
+  			</div>
+		</div>
+
+		<br><br>
+		<div>
+			
+			<p> ls command contains different switches. if add -l with the command it will display detail listing containging different type
+				of information like permissions, creation date and time and so on </p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ ls -l <br> <br>
+				<img src="../images/lst-l.png" class="img-rounded" alt="detail list of files" width="600" height="150">
+  			</div>
+		</div>
+
+
+		<br><br>
+
+		<div>
+			<strong> What each column says </strong> <br>
+				<ul class="list-group">
+					<li class="list-group-item list-group-item-warning"> First Column: represents file type and permission given on the file </li>
+					<li class="list-group-item list-group-item-warning"> Second Column: represents the number of memory blocks taken by the file or directory. </li>
+					<li class="list-group-item list-group-item-warning" > Third Column: represents owner of the file. </li>
+					<li class="list-group-item list-group-item-warning" > Fourth Column: represents group of the owner. </li>
+					<li class="list-group-item list-group-item-warning"> Fifth Column: represents file size in bytes. </li>
+					<li class="list-group-item list-group-item-warning"> Sixth Column: represents date and time when this file was created or modified last time. </li>
+					<li class="list-group-item list-group-item-warning"> Seventh Column: represents file or directory name.  </li>
+					
+					
+				</ul>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p> ls -a shows all files and directories including hidden files and directories (The name of hidden files is started with .). </p>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ ls -a <br> <br>
+				<img src="../images/ls-a.jpg" class="img-rounded" alt="detail list of files" width="600" height="100">
+  			</div>
+		</div>
+
+
+		<br><br>
+
+
+		<div>
+			
+			<p> Other switches that can be used with ls command can be viewed from the give url. </p>
+			<p><a href= "http://linuxcommand.org/man_pages/ls1.html" class="label label-info">http://linuxcommand.org/man_pages/ls1.html </a></p>
+		</div>
+
+		<br><br>
+
+		
+		<div>
+			<h4><span class="label label-warning">Creating a New Directory</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				To create a new directory we use mkdir command. mkdir stands for make directory. We will provide the name of the directory. Direcotry 					name should be meaningful.</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ mkdir softwares <br> <br>
+				
+				<img src="../images/mkdir.jpg" class="img-rounded" alt="create a directory" width="600" height="150">
+  			</div>
+		</div>
+
+
+	<br><br>
+
+
+	<div>
+			
+			<p>
+				To create a directory inside softwares directory we can write</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ mkdir softwares/dbs <br> <br>
+				
+				
+  			</div>
+		</div>
+
+
+	<br><br>
+		
+	<div>
+			
+			<p>
+				Now we want to create Edit directory inside drawing directory which is itself inside softwares directory. What will happen?  </p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ mkdir softwares/drawing/Edit <br> <br>
+				
+				It will throw an error because drawing directory does not exist inside softwares directory. To overcome we can use -p switch <br>
+
+				$ mkdir softwares/drawing/Edit <br> <br>
+				Now it will create a directory drawing first and then create Edit directory inside drawing.
+  			</div>
+		</div>
+
+
+	<br><br>
+
+		<div>
+			<h4><span class="label label-warning">How to go inside a Directory</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				To go inside a directory use cd command. cd stands for change directory. we can go up at any level using cd command. 
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ cd softwares <br>
+				$ ls <br>
+
+				Nothing will be displayed because it is an empty directory. To simplify our work we do not type the complete name
+				of the directory, instead after pressing a few first characters we use tab key to complete the name of the directory.
+				
+				
+  			</div>
+		</div>
+	
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				Home directory is the place from where you starts. whenever you log into the system you are at home directory. To access your home directory at any time you can use command
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ cd ~ <br>
+				
+				
+  			</div>
+		</div>
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				To go outside a directory use cd .. command.  
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ cd .. <br>
+				
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+			
+			<p>
+				To go at root level use cd command. If you are inside multiple directories, let suppose /user/documents/history/year16
+				then to go outside of all directories use cd command.
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ cd <br>
+				<i> alternatively you can use </i><br>
+				$ cd ../../../..
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+
+		<div class="alert alert-danger" role="alert"> Remember: In Unix dot (.) refer to current directory while double dot (..) refer to parent directory 
+		
+		</div>
+
+		<br><br>
+		
+
+		<!--Exercise -->
+
+		<div class = "panel panel-primary">
+      
+		      <div class = "panel-heading">
+			 <h4 class = "panel-title">
+			    <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseOne">
+			       Create a directory named books. create a subdirectory named ebooks. Go inside ebook directory and show the list.
+			    </a>
+			 </h4>
+		      </div>
+		      
+		      <div id = "collapseOne" class = "panel-collapse collapse">
+			 <div class = "panel-body">
+				       $ mkdir books <br>
+					$ cd books <br>
+					$ mkdidr ebooks <br>
+					$ cd ebooks <br>
+					$ ls <br>
+			 </div>
+		      </div>
+		      
+		</div>
+
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">How to Create a File</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				To create a file we need an editor. Several editors are provided with unix like nano, vi, vim etc. To open any editor just type the name 
+				of the editor and then press enter. Each editor has different work environment.  To create a file "stock" using vi editor the command 					will be as follows:
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ vi stock <br>
+				
+
+				This will open the vi editor window. A blank file with the name stock is opened in vi editor. <br>
+				
+				<img src="../images/vi.jpg" class="img-rounded" alt="file stock" width="600" height="180"> <br><br>
+				To write some text in file press insert and then write text <br><br> 
+				
+				<img src="../images/vi2.jpg" class="img-rounded" alt="file stock" width="600" height="180">
+  			</div>
+		</div>
+	
+		<div>
+			<strong> Some useful commands </strong> <br>
+				<ul class="list-group">
+					<li class="list-group-item list-group-item-warning"> To go into text mode press insert </li>
+					<li class="list-group-item list-group-item-warning"> To go into command mode press escape </li>
+					<li class="list-group-item list-group-item-warning" > To delete one line press dd </li>
+					<li class="list-group-item list-group-item-warning" > To delete one word press dw </li>
+					<li class="list-group-item list-group-item-warning"> To save the file press escape + colon + w </li>
+					<li class="list-group-item list-group-item-warning"> To quit the vi editor press escape + colon + q </li>
+					<li class="list-group-item list-group-item-warning"> To save file and then quit press ZZ   </li>
+					<li class="list-group-item list-group-item-warning"> To discard changes and quit press :q! </li>
+					
+				</ul>
+		</div>
+
+		<br><br>
+
+
+
+		<div>
+			<h4 ><span class="label label-warning" style="box-shadow: 10px 10px 5px #888888;" >How to Display Content of a File</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				To see the content of a file use cat command as follows. It will display the contents of the file on screen.
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				$ cat stock <br> <br> 
+				List of available items <br>
+				1. RAM  <br>
+				2. Notebook  <br>
+				3. Deskjet  <br>
+
+				 <br>
+				
+				
+				
+
+  			</div>
+			
+		</div>
+
+		<div>		
+		<br><br>
+			<strong>   What if the length of file exceeds then the length of screen  </strong>
+			
+
+			<ul class="list-group">
+					<li class="list-group-item list-group-item-warning"> The command <strong>less</strong> writes the contents of a file onto the screen a page at a time </li>
+					<li class="list-group-item list-group-item-warning"> The <strong> head </strong> command writes the first ten lines of a file to the screen. </li>
+					<li class="list-group-item list-group-item-warning" > The <strong> tail </strong> command writes the last ten lines of a file to the screen.  </li>
+					
+					
+					
+			</ul>
+
+		</div>
+		<br><br>
+
+		<div>
+			<h4><span class="label label-warning">How to Name a File</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				We have some rules and conventions for naming files <br>
+				<ul class="list-group">
+					<li class="list-group-item">
+				Characters with special meanings such as / * & % , should be avoided </li>
+				<li class="list-group-item"> Avoid using spaces within names </li>
+				<li class="list-group-item"> The safest way to name a file is to use only alphanumeric characters, that is, letters and numbers, together with _ (underscore) and . (dot). </li>
+				<li class="list-group-item"> File names conventionally start with a lower-case letter, and may end with a dot followed by a group of letters indicating the contents of the file </li>
+				</ul>
+			</p>
+		</div>
+
+
+		
+		<br><br>
+
+
+
+		<!-- Exercises -->
+
+
+
+		<div class = "panel panel-primary">
+		      
+		      <div class = "panel-heading">
+			 <h4 class = "panel-title">
+			    <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseTwo">
+			       Create a text file "index" inside ebooks folder. write some text and save the file
+			    </a>
+			 </h4>
+		      </div>
+		      
+		      <div id = "collapseTwo" class = "panel-collapse collapse">
+			 <div class = "panel-body">
+				       $ cd books/ebooks <br>
+					$ vi index.txt <br>
+					type some text in file and then save using :wq to display the contents of file write: <br>
+					$ cat index.txt <br>
+			
+			 </div>
+		      </div>
+		      
+		</div>
+
+
+
+
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">Copy a File</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				To copy file use cp command. It requires two parameters, the name of the source file and the name of the destination file with complete path where you want to place the file. If path is not mentioned the file will be copied on the same location. <br><br>
+				cp source-file destination-file
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+				$ ls <br>
+				stock <br><br>
+    				$ cp stock  list-of-items <br><br>
+				$ ls <br>
+				stock list-of-items <br>
+				
+				
+  			</div>
+		</div>
+
+
+		<br>
+		<div>
+			<p> To copy a file from some other location to the current directory, we give the complete path of source file. To indicate current directory we use period(.) Note that the file will be copied with the same name as source file. suppose we have two folders programs and documents. we are inside programs folder and we want to copy a file bk.txt in programs folder which is inside documents folder. </p>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+			
+  			<div class="panel-body">
+    				$ ls <br>
+				pr1 pr2 run <br><br>
+				$ cp ../documents/bk.txt . <br><br>
+				$ ls <br>
+				bk.txt pr1 pr2 run
+				
+				
+				
+  			</div>
+		</div>
+
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">Rename a File</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				To rename a file or move file from one location to another use mv command.  <br>
+				mv old-file new-file
+			</p>
+		</div>
+		<br>
+		<p><strong> To rename a file </strong></p>
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+			
+  			<div class="panel-body">
+    				$ mv list-of-items list-items<br>
+				
+				
+				
+				<img src="../images/mv.jpg" class="img-rounded" alt="file stock" width="600" height="100"> <br><br>
+				
+  			</div>
+		</div>
+
+		<p><strong> To change the location of a file </strong></p>
+<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+			
+  			<div class="panel-body">
+    				$ mv list-items ../documents/<br>
+				
+				
+				
+				<img src="../images/mv2.jpg" class="img-rounded" alt="file stock" width="600" height="100"> <br><br>
+				
+  			</div>
+		</div>
+
+
+
+
+
+	<br><br>
+		<div>
+			<h4><span class="label label-warning">Removing File and Directory</span></h4>
+			
+		</div>
+
+
+		<br><br>
+		
+		<div>
+			
+			<p>
+				To remove a file use rm command. To remove an empty directory use rmdir command
+			</p>
+		</div>
+
+
+		
+		<br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+			
+  			<div class="panel-body">
+    				$ rm bk.txt <br>
+				$ ls <br>
+				
+				
+				
+				<img src="../images/rm.jpg" class="img-rounded" alt="file stock" width="600" height="100"> <br><br>
+				
+  			</div>
+		</div>
+
+		<br>
+		<p> Now try to remove the softwares directory using rmdir command. The output will be an error message
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+			
+  			<div class="panel-body">
+    				
+				$ rmdir softwares <br>
+				rmdir: failed to remove 'softwares': Directory not empty <br>
+ 
+				<strong> we cannot delete an unempty directory using rmdir command</strong> <br><br>
+				we can remove an unempty directory using -r flag with rm command
+				$ rm -r softwares <br>
+				
+				<strong><i> we cannot recover deleted files and directories which are deleted using rm or rmdir command. </i></strong>
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<!-- Exercises -->
+
+
+
+		<div class = "panel panel-primary">
+		      
+		      <div class = "panel-heading">
+			 <h4 class = "panel-title">
+			    <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseThree">
+			       copy index.txt file with the name list-of-contents.txt in books folder
+			    </a>
+			 </h4>
+		      </div>
+		      
+		      <div id = "collapseThree" class = "panel-collapse collapse">
+			 <div class = "panel-body">
+				       $ cp index.txt ../list-of-contents.txt <br>
+			
+			 </div>
+		      </div>
+		      
+		</div>
+
+
+
+
+
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p></p>
+  <p> Next >> <a href="04-redirection.html"> Redirection </a></p>
+  <p></p>
+</div>
+
+
+ 
+
+	</div><!-- /.container-fluid -->
+
+
+
+	
+	<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "A file is a collection of data. In linux we can create new files, edit and delete files and update existing ones. To organize 				our files we keep them in directories. Files having similar contents or associated with the same subject are placed under a single directory";
+	    		
+			
+			
+		}); 
+	</script>
+
+</body>
+</html>
