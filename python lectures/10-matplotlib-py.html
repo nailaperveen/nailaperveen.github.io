@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+  		<div class="row">
+    			<nav class="navbar navbar-default">
+  				<div class="container">
+    					<!-- Brand and toggle get grouped for better mobile display -->
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+      						<a class="navbar-brand" href="../index.html">Home</a>
+    					</div>
+
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="../index_/schedule.html">Schedule <span class="sr-only">(current)</span></a></li>
+							<li><a href="../index_/resources.html">Resources</a></li>
+						</ul> 
+					</div><!-- /.navbar-collapse -->
+ 				</div>
+			</nav>
+		</div>
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1>Visualising Data using Matplotlib</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. To know what is Matplotlib/Pylab</p>
+					<p>2. How to visualize our data?</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 20 min</li>
+					<li class="list-group-item">Exercise : 1</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div >
+			Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms. Matplotlib can be used in Python scripts, the Python and IPython shell, the jupyter notebook and web application servers.
+
+Matplotlib tries to make things easy and hard things possible. You can generate plots, histograms, power spectra, bar charts, errorcharts, scatterplots, etc., with just a few lines of code. 
+		</div>
+
+		<br>
+
+		<div ><h4><span class="label label-warning">Matplotlib and Pylab</span></h4>
+			<p>
+			Matplotlib as an object oriented plotting library. Pylab is an interface to the same set of functions that imitates the (state-driven) Matlab plotting interface. Pylab is slightly more convenient to use for easy plots, and Matplotlib gives far more detailed control over how plots are created.</p><p>
+Each pyplot function makes some change to a figure: e.g., creates a figure, creates a plotting area in a figure, plots some lines in a plotting area, decorates the plot with labels, etc. </p>
+			</div>
+
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+                                import matplotlib.pyplot as plt<br>
+				import numpy as np<br>
+				x = np.linspace(0, 5, 10)<br>
+				y = x ** 2<br>
+				plt.plot(x, y)<br>
+				plt.show()<br>
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  
+			<img src="../images/g1.png" width="300" height="300">
+  			</div>
+		</div>
+		<br><br>
+
+	<div> x and y variables contains data to draw plot. plt.plot function creates plot while plt.show function displays plot on screen</div>
+	<br><br>
+
+	<div ><h4><span class="label label-warning">Interactive Mode</span></h4></div>
+Matplotlib can be run in two modes:non-interactive (this is the default) and interactive.
+In non-interactive mode, no plots will be displayed until the show() command has been issued. In
+this mode, the show() command should be the last statement of your program.
+In interactive mode, plots will be immediately displayed after the plot command has been issued.
+One can switch the interactive mode on using pylab.ion() and off using pylab.ioff().<br>
+
+To make our plot more readable we can add title of the plot, label of x and y axis and line style and colour
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import matplotlib.pyplot as plt<br>
+				import numpy as np<br>
+				x = np.linspace(0, 5, 10)<br>
+				y = x ** 2<br>
+				plt.plot(x, y, 'r--')<br>
+				plt.xlabel('X')<br>
+				plt.ylabel('Y')<br>
+				plt.title('Title of Graph')<br>
+                                plt.grid()<br>
+				plt.savefig("graph.png")<br>
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	 <img src="../images/g2.png" width="300" height="300">
+
+  			</div>
+		</div>
+		<br><br>
+
+
+
+		<div>
+		We can save a graph on disk in different formats like png, eps, pdf using plt.savefig function. The third argument in plt.plot function indicates that the line color is red and it is dashed line rather than solid. Some other useful commands are:
+
+		<ul class="list-group">
+			
+			<li class="list-group-item list-group-item-warning">figure(figsize=(5,5)) sets the figure size to 5inch by 5inch</li>
+			  <li class="list-group-item list-group-item-warning">plot(x,y1,label=’sin(x)’) The “label” keyword defines the name of this line. The line label will be shown in the legend if the legend() command is used later.</li>
+			  <li class="list-group-item list-group-item-warning">axis([-2,2,-1,1]) This fixes the displayed area to go from xmin=-2 to xmax=2 in x-direction, and from ymin=-1 to ymax=1 in y-direction</li>
+			<li class="list-group-item list-group-item-warning"> legend() This command will display a legend with the labels as defined in the plot command. Try help("pylab.legend") to learn more about the placement of the legend.</li>
+			<li class="list-group-item list-group-item-warning">grid() This command will display a grid on the backdrop.</li>
+			<li class="list-group-item list-group-item-warning">xlabel(’...’) and ylabel(’...’) allow labelling the axes.</li>
+		</ul>
+
+		Note further than you can chose different line styles, line thicknesses, symbols and colours for the data
+to be plotted. For example:
+
+		<ul class="list-group">
+			
+			<li class="list-group-item list-group-item-info">plot(x,y,’og’) will plot circles (o) in green (g)</li>
+			  <li class="list-group-item list-group-item-info">plot(x,y,’-r’) will plot a line (-) in red (r)</li>
+			  <li class="list-group-item list-group-item-info">plot(x,y,’-b’,linewidth=2) will plot a blue line (b) with two two pixel thickness linewidth=2 which is twice as wide as the default.</li>
+		</ul>
+
+
+		</div>
+
+		<br>
+
+		<div ><h4><span class="label label-warning">Multple Lines Using Single Plot Command</span></h4>
+			 The example below illustrates a plotting several lines with different format styles in one command using arrays
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				import matplotlib.pyplot as plt<br>
+
+				# evenly sampled time at 200ms intervals<br>
+				t = np.arange(0., 5., 0.2)<br>
+
+				# red dashes, blue squares and green triangles<br>
+				plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')<br>
+				
+				plt.savefig("graph.pdf")<br>
+				plt.savefig("graph.png")<br>
+				plt.savefig("graph.eps")<br>
+				
+  			</div>
+		</div>
+                <div> Alternatively the statement plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^') can also be written as<br>
+				plt.plot(t, t, 'r--')<br>
+				plt.plot(t, t**2, 'bs')<br>
+				plt.plot(t, t**3, 'g^')<br>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  <img src="../images/g3.png" width="300" height="300">
+
+  			</div>
+		</div>
+		<br><br>
+
+
+
+		<div ><h4><span class="label label-warning">Working with multiple figures and axes</span></h4>
+			 The example below illustrates plotting a figure with multiple sub plots
+		</div>
+
+			
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				import matplotlib.pyplot as plt<br>
+
+				def f(t):<br>
+				    &nbsp;&nbsp;&nbsp;return np.exp(-t) * np.cos(2*np.pi*t)<br>
+
+				t1 = np.arange(0.0, 5.0, 0.1)<br>
+				t2 = np.arange(0.0, 5.0, 0.02)<br>
+
+				plt.figure(1)<br>
+				plt.subplot(211)<br>
+				plt.plot(t1, f(t1), 'bo', t2, f(t2), 'k')<br>
+
+				plt.subplot(212)<br>
+				plt.plot(t2, np.cos(2*np.pi*t2), 'r--')<br>
+				plt.show()
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  
+				<img src="../images/g4.png" width="300" height="300">
+
+  			</div>
+		</div>
+		<br><br>
+
+	<div>The figure() command here is optional because figure(1) will be created by default, just as a subplot(111) will be created by default if you don’t manually specify any axes. The subplot() command specifies numrows, numcols, fignum where fignum ranges from 1 to numrows*numcols. The commas in the subplot command are optional if numrows*numcols<10. To create more than one figure we can use:
+	</div>
+	<br><br>
+	
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import pylab<br>
+				pylab.figure (1)<br>
+				pylab.plot ( range (10) , 'o')<br>
+				pylab.figure (2)<br>
+				pylab.plot ( range (100) , 'x')<br>
+				pylab.show()
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+				<table><tr><td>
+			    	  <img src="../images/g5.png" width="300" height="300">
+				</td><td><img src="../images/g6.png" width="300" height="300"></td></tr></table>
+  			</div>
+		</div>
+		<br><br>
+
+
+
+		
+		<br><br>
+		<div> <h4><span class="label label-warning">Scatter Plots</span></h4></div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				import matplotlib.pyplot as plt<br>
+
+
+				N = 50<br>
+				x = np.random.rand(N)<br>
+				y = np.random.rand(N)<br>
+				colors = np.random.rand(N)<br>
+				area = np.pi * (15 * np.random.rand(N))**2  # 0 to 15 point radii<br>
+
+				plt.scatter(x, y, s=area, c=colors, alpha=0.5)<br>
+				plt.show()<br>
+
+
+				plt.savefig("g7.png")<br>
+
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+				<img src="../images/g7.png" width="300" height="300">
+
+					
+				
+  			</div>
+		</div>
+		<br><br>
+
+
+                
+		<div><h4><span class="label label-warning">Using Legend</span></h4> The bbox_to_anchor keyword gives a great degree of control for manual legend placement. For example, if you want your axes legend located at the figure’s top right-hand corner instead of the axes’ corner, simply specify the corner’s location, and the coordinate system of that location. 
+		</div>
+		
+
+		<br><br>
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import matplotlib.pyplot as plt<br>
+
+
+				plt.subplot(211)<br>
+				plt.plot([1,2,3], label="test1")<br>
+				plt.plot([3,2,1], label="test2")<br>
+				# Place a legend above this subplot, expanding itself to fully use the given bounding box.<br>
+				plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+					   ncol=2, mode="expand", borderaxespad=0.)<br>
+
+				plt.subplot(223)<br>
+				plt.plot([1,2,3], label="test1")<br>
+				plt.plot([3,2,1], label="test2")<br>
+				# Place a legend to the right of this smaller subplot.<br>
+				plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)<br>
+
+				plt.show()<br>
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  <img src="../images/g8.png" width="300" height="300">
+
+  			</div>
+		</div>
+		<br><br>
+
+
+		<div>
+			
+			<p ><h4><span class="label label-warning">3D Plot Using Matplotlib</span></h4>  we can perform all calculations on arrays using a single statement instead of using loop. Here are some more examples:
+			</p>
+		</div>
+
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import matplotlib as mpl<br>
+				from mpl_toolkits.mplot3d import Axes3D<br>
+				import numpy as np<br>
+				import matplotlib.pyplot as plt<br>
+
+				mpl.rcParams['legend.fontsize'] = 10<br>
+
+				fig = plt.figure()<br>
+				ax = fig.gca(projection='3d')<br>
+				theta = np.linspace(-4 * np.pi, 4 * np.pi, 100)<br>
+				z = np.linspace(-2, 2, 100)<br>
+				r = z**2 + 1<br>
+				x = r * np.sin(theta)<br>
+				y = r * np.cos(theta)<br>
+				ax.plot(x, y, z, label='parametric curve')<br>
+				ax.legend()<br>
+
+				plt.show()<br>
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	 <img src="../images/g9.png" width="300" height="300">
+	
+  			</div>
+		</div>
+                
+
+		<br><br>
+		<div> More 3D Plot Examples <a href="http://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html">here </a></div>
+		<br><br>
+
+
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				Q. How to read data from file and then plot?<br><br>
+				
+
+			</a>
+		</div>
+		<div class="collapse" id="collapseTwo">
+			<div class="well">
+		    		from matplotlib import pyplot as plt<br>
+				import numpy as np<br>
+
+				x,y = np.loadtxt('exampleFile.csv', unpack=True, delimiter = ',')<br>
+
+				plt.plot(x,y)<br>
+				plt.title('Graph Info')<br>
+				plt.ylabel('Y axis')<br>
+				plt.xlabel('X axis')<br>
+
+				plt.show()
+
+
+			</div>
+		</div>
+
+		<br><br>
+
+
+	      
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p> <a href="../index_/python_list.html">Back >> Python Lectures</a> </p>
+</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>

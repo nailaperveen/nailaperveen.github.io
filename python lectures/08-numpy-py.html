@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+  		<div class="row">
+    			<nav class="navbar navbar-default">
+  				<div class="container">
+    					<!-- Brand and toggle get grouped for better mobile display -->
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+      						<a class="navbar-brand" href="../index.html">Home</a>
+    					</div>
+
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="../index_/schedule.html">Schedule <span class="sr-only">(current)</span></a></li>
+							<li><a href="../index_/resources.html">Resources</a></li>
+						</ul> 
+					</div><!-- /.navbar-collapse -->
+ 				</div>
+			</nav>
+		</div>
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1>Numerical Python(numpy)</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. To know what is Numerical Python(NumPy)</p>
+					<p>2. How to deal with Arrays and Vector Data</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 15 min</li>
+					<li class="list-group-item">Exercise : 1</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div ><p> NumPy is the fundamental package for scientific computing with Python. It contains among other things:</p>
+			<ul><li>a powerful N-dimensional array object</li>
+				<li>sophisticated (broadcasting) functions</li>
+				<li>tools for integrating C/C++ and Fortran code</li>
+				<li>useful linear algebra, Fourier transform, and random number capabilities.</li>
+</a></div>
+
+		<br>
+
+		<div ><h4><span class="label label-warning">Arrays</span></h4>
+
+			An array in python is similar to a list but the main difference is that elements in a list can be of different data types while all the elements in arrays should be of same data type. This makes arrays more efficient because we know exactly that each item in an array will take the same storage space in memory. vectors and matrices are also called as arrays in NumPy. Vectors are usually represented as 1-dimensional array. There are several ways to create arrays.
+			</div>
+
+		<br><br>
+		<div class="label label-info">Conversion of a list (or tuple) into an array using numpy.array:</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				x = np.array([1,5,10])<br>
+				print (x)
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  [ 1  &nbsp;&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;10]
+  			</div>
+		</div>
+		<br><br>
+
+
+	<div class="label label-info">Creation of an array with zeros:</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				x = np.zeros((5,3))<br>
+				print (x)
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  [[ 0.  0.  0.]<br>
+ 					[ 0.  0.  0.]<br>
+ 					[ 0.  0.  0.]<br>
+ 					[ 0.  0.  0.]<br>
+ 					[ 0.  0.  0.]]
+
+
+  			</div>
+		</div>
+		<br><br>
+
+
+
+<div class="label label-info">Creation of vector with ones:</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				x = np.ones([3])<br>
+				print (x)
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  [ 1.  &nbsp;&nbsp;&nbsp;1. &nbsp;&nbsp;&nbsp;1.]
+  			</div>
+		</div>
+		<br><br>
+
+
+
+		<div class="label label-info">Creation of a vector with  Evenly Spaced Values using “ArrayRANGE” and "linspace":
+			
+		</div>
+
+			<p>The syntax of arange:
+
+			arange([start,] stop[, step,], dtype=None)<br>
+
+			arange returns evenly spaced values within a given interval. The values are generated within the half-open interval '[start, stop)'. arange returns an ndarray. If the 'start' parameter is not given, it will be set to 0. The end of the interval is determined by the parameter 'stop'. Usually, the interval will not include this value. The spacing between two adjacent values of the output array is set with the optional parameter 'step'. The default value for 'step' is 1. The type of the output array can be specified with the parameter 'dtype'. 
+			</p><br>
+			<p>The syntax of linspace:
+
+linspace(start, stop, num=50, endpoint=True, retstep=False)
+
+linspace returns an ndarray, consisting of 'num' equally spaced samples in the closed interval [start, stop]
+			</p>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				x = np.arange(0, 5, 0.5)<br>
+				print (x)
+				y = np.linspace(0, 5, 10)<br>
+				print (y)
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  [ 0.   &nbsp;&nbsp;&nbsp;0.5  &nbsp;&nbsp;&nbsp;1.   &nbsp;&nbsp;&nbsp;1.5  &nbsp;&nbsp;&nbsp;2.   &nbsp;&nbsp;&nbsp;2.5  &nbsp;&nbsp;&nbsp;3.   &nbsp;&nbsp;&nbsp;3.5  &nbsp;&nbsp;&nbsp;4.   &nbsp;&nbsp;&nbsp;4.5] <br>
+				[ 0.          &nbsp;&nbsp;&nbsp;0.55555556  &nbsp;&nbsp;&nbsp;1.11111111  &nbsp;&nbsp;&nbsp;1.66666667  &nbsp;&nbsp;&nbsp;2.22222222  &nbsp;&nbsp;&nbsp;2.77777778
+  &nbsp;&nbsp;&nbsp;3.33333333  &nbsp;&nbsp;&nbsp;3.88888889  &nbsp;&nbsp;&nbsp;4.44444444  5.        ]
+
+
+  			</div>
+		</div>
+		<br><br>
+
+
+	<div class="label label-info">Creation of an empty array:</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				x = np.empty(2)<br>
+				print (x)
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  [ [  6.93601640e-310   &nbsp;&nbsp;&nbsp;1.67980422e-316]]
+  			</div>
+		</div>
+		<br><br>
+
+
+
+		<div>np.empty creates an uninitialized array whose output may vary. </div>
+		
+		<br><br>
+		<div> <h4><span class="label label-warning">Operations on Arrays</span></h4> Note that once we have created an array we can perform calculations on every element of array with a single statement </div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				a = np.array([20,30,40,50])<br>
+				b = np.arange(4)<br>
+				print("a = ", a)<br>
+				print ("b = ", b)<br>
+				c = a-b<br>
+				print ("a-b = ", c)<br>
+				print("b**2", b**2)<br>
+
+				print("10*np.sin(a) = ", 10*np.sin(a))<br>
+				print("a<35 = ", a<35)<br>
+
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+				a =  [20 30 40 50]<br>
+				b =  [0 1 2 3]<br>
+				a-b =  [20 29 38 47]<br>
+				b**2 [0 1 4 9]<br>
+				10*np.sin(a) =  [ 9.12945251 -9.88031624  7.4511316  -2.62374854]<br>
+				a<35 =  [ True  True False False]
+
+					
+				
+  			</div>
+		</div>
+		<br><br>
+
+
+                
+		<div><h4><span class="label label-warning">Matrix Multiplication</span></h4> Using numpy.random we can create arrays containing random values. Two arrays can be multiplied in the usual linear-algebra way using numpy.matrixmultiply.  
+		</div>
+		
+
+		<br><br>
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				import numpy.random<br>
+				A = numpy.random.rand (3 , 3)<br>
+				x = numpy.random.rand (3)<br>
+				b = np.dot(A, x)<br>
+				print ("A =", A)<br>
+				print ("x =", x)<br>
+				print ("b =", b)<br>
+				print ("size of b = ",b.size)<br>
+				print("shape of b = ",b.shape)<br>
+				print ("size of A = ",A.size)<br>
+				print("shape of A = ",A.shape)<br>
+                                print ("type of b = ", b.dtype)
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  A = [[ 0.9967063   0.38792529  0.4592602 ]<br>
+				 [ 0.47907895  0.27932141  0.5472971 ]<br>
+				 [ 0.87003975  0.31753515  0.60621203]]<br>
+				x = [ 0.39230128  0.1119038   0.6308364 ]<br>
+				b = [ 0.72413752  0.56445534  0.75927171]<br>
+                                size of b =  3<br>
+				shape of b =  (3,)<br>
+				size of A =  9<br>
+				shape of A =  (3, 3)<br>
+				type of b =  float64<br>
+
+  			</div>
+		</div>
+		<br><br>
+
+
+		<div>
+			
+			<p ><h4><span class="label label-warning">Element wise Multiplication</span></h4>  we can perform all calculations on arrays using a single statement instead of using loop. Here are some more examples:
+			</p>
+		</div>
+
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				import numpy.random<br>
+			
+				a = np.ones(3, dtype=np.int32)<br>
+				b = np.linspace(0,np.pi,3)<br>
+				print("a = ", a)<br>
+				print("b = ", b)<br>
+				print("sum of a and b = ", a+b)<br>
+				print("element wise multiplication a*b = ", a*b)<br>
+				print("sum of all elements of a = ", a.sum())<br>
+				print("expression evaluation exp(b*1j)", np.exp(b*1j))<br>
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	  a =  [1 1 1]<br>
+				b =  [ 0.          1.57079633  3.14159265]<br>
+				sum of a and b =  [ 1.          2.57079633  4.14159265]<br>
+				element wise multiplication a*b =  [ 0.          1.57079633  3.14159265]<br>
+				sum of all elements of a =  3<br>
+				expression evaluation exp(b*1j) [  1.00000000e+00 +0.00000000e+00j   6.12323400e-17 +1.00000000e+00j		  -1.00000000e+00 +1.22464680e-16j]
+
+				
+	
+  			</div>
+		</div>
+                
+
+		<br><br>
+		<div ><h4><span class="label label-warning">Reshaping Arrays</span></h4>
+			we can change the shape of arrays w.r.t no. of elements
+		</div>
+
+		<br><br>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				limport numpy as np<br>
+				import numpy.random<br>
+				a = np.arange(12) <br>                       
+				print(a)<br>
+				b = a.reshape(4,3)  <br>         
+				print(b)
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			[ 0  1  2  3  4  5  6  7  8  9 10 11] <br>  <br>  
+			[[ 0  1  2] <br>  
+			 [ 3  4  5] <br>  
+			 [ 6  7  8] <br>  
+			 [ 9 10 11]] <br>  
+
+				
+	
+  			</div>
+		</div>
+                <br><br>
+
+		<div><h4><span class="label label-warning">Eigenvectors and Eigenvalues</span></h4>
+			Here is a small example that computes the [trivial] Eigenvectors and Eigenvalues (eig) of the unity
+matrix (eye)):
+		</div>
+		<br><br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np <br>  
+				import numpy.linalg as LA <br>  
+				A = np.eye(3) <br>  
+				print ("A =", A) <br>  
+				evalues , evectors = LA.eig(A) <br>  
+				print ("evalues = ", evalues) <br>  
+				print ("evectors = ", evectors) <br>  
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+				A = [[ 1.  0.  0.]<br> 
+				 [ 0.  1.  0.]<br> 
+				 [ 0.  0.  1.]]<br> 
+				evalues =  [ 1.  1.  1.]<br> 
+				evectors =  [[ 1.  0.  0.]<br> 
+				 [ 0.  1.  0.]<br> 
+				 [ 0.  0.  1.]]<br> 
+
+	
+  			</div>
+		</div>
+                <br><br>
+
+		<div>
+			<h4><span class="label label-warning">Indexing and Slicing</span></h4> 
+		</div>
+		<p>Assigning to and accessing the elements of an array is similar to other sequential data types of Python, i.e. lists and tuples. </p>
+		<br><br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	
+				import numpy as np<br>
+				A = np.array([<br>
+				[11,12,13,14,15],<br>
+				[21,22,23,24,25],<br>
+				[31,32,33,34,35],<br>
+				[41,42,43,44,45],<br>
+				[51,52,53,54,55]])<br>
+				print ("Index : ", A[2][0])<br>
+				print("Slice :")<br>
+				print (A[:3,2:])
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	Index :  31<br>
+				Slice :<br>
+				[[13 14 15]<br>
+				 [23 24 25]<br>
+				 [33 34 35]]
+
+				
+			<img style="float:right" src="../images/slicing1.png">
+  			</div>
+			
+		</div>
+                <br><br>
+		
+		<a href="http://www.python-course.eu/numpy.php"> See more examples here </a>
+
+
+
+
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				Q. What is the output of given code?<br><br>
+				import numpy as np<br>
+				a = np.array([1, 2, 3, 4, 5])<br>
+				b = a[1:4]<br>
+				b[0] = 200<br>
+				print(a[1])<br>
+				print(a)
+
+			</a>
+		</div>
+		<div class="collapse" id="collapseTwo">
+			<div class="well">
+		    		200<br>
+				[  1 200   3   4   5]
+
+			</div>
+		</div>
+
+		<br><br>
+
+
+	      
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p> <a href="09-classes-py.html">Next >> Python Classes</a> </p>
+</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>
