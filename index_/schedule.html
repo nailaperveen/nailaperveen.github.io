@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+ 	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+  		<div class="row">
+    			<nav class="navbar navbar-default">
+  				<div class="container">
+    					<!-- Brand and toggle get grouped for better mobile display -->
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+      						<a class="navbar-brand" href="../index.html">Home</a>
+    					</div>
+
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="../index_/schedule.html">Schedule <span class="sr-only">(current)</span></a></li>
+							<li><a href="../index_/resources.html">Resources</a></li>
+						</ul> 
+					</div><!-- /.navbar-collapse -->
+ 				</div>
+			</nav>
+		</div>
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Schedule</h1>
+			</div>
+		</div>
+
+		
+
+
+	  	
+		
+		<br><br>
+		
+		<div>
+			<table class="table">
+			  <thead class="thead-inverse">
+			    <tr>
+			      <th>#</th>
+			      <th>Schedule</th>
+                              <th>Estimated Time</th>
+			      <th>Start Time</th>
+			      <th>End Time</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Introduction</td>
+			      <td>05m </td>
+			      <td>...</td>
+			      <td>...</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">2</th>
+			      <td>Unix Lectures</td>
+			      <td>60m</td>
+			      <td>...</td>
+			      <td>...</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">3</th>
+			      <td>Python Lectures</td>
+			      <td>90m</td>
+			      <td>...</td>
+			      <td>...</td>
+			    </tr>
+			  </tbody>
+</table>
+		</div>
+
+		<br><br>
+
+		
+
+		
+
+	</div><!-- /.container-fluid -->
+
+
+
+	<script src="../js/angular.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery.min.js"></script>
+	
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>
