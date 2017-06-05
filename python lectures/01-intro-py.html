@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+
+  		<div class="row">
+    			<nav class="navbar navbar-default">
+  				<div class="container">
+    					<!-- Brand and toggle get grouped for better mobile display -->
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+      						<a class="navbar-brand" href="../index.html">Home</a>
+    					</div>
+
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="../index_/schedule.html">Schedule <span class="sr-only">(current)</span></a></li>
+							<li><a href="../index_/resources.html">Resources</a></li>
+						</ul> 
+					</div><!-- /.navbar-collapse -->
+ 				</div>
+			</nav>
+		</div>
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Learning Python</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. To increase the basic knowledge about Python </p>
+					<p>2. To learn Python modes</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 15 min</li>
+					<li class="list-group-item">Exercise : 2</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div ng-bind="section1"></div>
+		
+		<br><br>
+		
+		<div>
+			<h4> <span class="label label-warning"> An Interpreted Language </span></h4>
+			<p > Python can run on any platform. On a Unix machine usually the Python interpreter is 					installed in /usr/local/bin folder. On a Windows machine the defualt place for Python interpreter is C:\. But the 					location is a part of installation process so you can change its place but it is not recommended. If you change the 					location of Python interpreter then there is a need to update the <strong>PATH</strong> variable. To start Python you 					just type <strong>python</strong> in terminal window.
+			</p>
+		</div>
+
+		<br><br>
+
+		<div>
+			<h4><span class="label label-warning">Interactive Mode</span></h4>
+			<p > Three greater-than signs (>>>) is the primary prompt of Python. when we run Python using <strong> python </strong> command, it is started in interactive mode. First it shows the version information and then display the primary prompt. Primary prompt(>>>) means interpreter is ready to accept commands and run them immediately. when a statement breaks into two lines it shows the secondary prompt which is tripple dot (...) 
+			</p>
+			
+			
+		</div>
+
+		<br><br>
+		
+		<div>
+			<h4><span class="label label-warning">How to Run</span></h4>
+			<p >we can run python from command line in interactive mode or we can write scripts in any editor. It may be a simple text editor like notepad in Windows or gedit in Linux. Or it may be an advanced editor like Jupyter Notebook. It is easy to write and run python code from inside jupyter notebook rather than using a simple text editor. The Jupyter Notebook App is a server-client application that allows editing and running notebook documents via a web browser. Notebook documents produced by the Jupyter Notebook contain both computer code (e.g. python) and rich text elements (outputs, paragraphs, equations, figures, links, etc...). Notebook documents are both human-readable documents containing the analysis description and the results (figures, tables, etc..) as well as executable documents which can be run to perform data analysis.  </p>
+		</div >
+
+		<br>
+		<div class="alert alert-danger" role="alert"> Our goal is to Learn Programming : 
+			<p >
+				The important thing to understand here is that we are not limited to python only. Rather we are discussing general 					programming techniques that can be applied any where in any programming language. we will discuss general concepts and 					tricks of porgramming. Once the basic concepts are clear it is easy to code in any language. 
+			</p>
+		</div>
+
+ 
+		<br><br>
+
+
+		
+
+		<div>
+			<h4><span class="label label-danger">Where to keep the data?</span></h4>
+			<p >We do programming to organize our data; so first we will see what is data? and how to organize it?<br>
+As we have discussed before data can be anything, a number, a name, some text or image. To perform processing on our data(numbers and strings), we need them to store somewhere. That is where the concepts of variables come in. Variables are simple containers to hold some data in memory. A variable can hold any thing: Number, String, File, image, video etc. In Python there is no need to define the type of variable. We just declare the name of a variable and pass some value to it. Depending on the value passed to the variable, the interpreter determines the type of variable automatically and it can be changed at any time. For example there is a variable "price". Using interactive mode, we can assign value in it like this. The data type of variable price is Number here.
+			</p>
+			
+			
+		</div>
+
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> price = 80 <br>
+				
+  			</div>
+		</div>
+		
+		<div>
+			
+			<p>and later in our code we may use the same variable like this. Now the data type of variable price is String.
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> price = "eighty" <br>
+				
+  			</div>
+		</div>
+
+		<br><br>
+		<div>
+		<p>
+				Here in this example first we assigned a numeric value and then we assigned a string value in the same variable. It is acceptable in Python. There will be no error. But using variables like this is a bad practice, as we may confused ourselves later in our code or it may bring inconsistency at run time.</p>
+		</div>
+		<div>
+			<h4>Remember: To start python interactive mode type python in terminal from anywhere. It will start python in interactive mode.</h4>
+			
+		</div >
+
+
+		<br><br>
+
+		<div>
+			<p> In python interactive mode when we define a variable, solve any equation or import any library, it keeps a record of every statement. for example if we define a variable x on first line, then in the second line we can use this variable
+
+			</p>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+				>>> x = 0.5 <br>
+    				>>> x *3 <br>
+				1.5 <br>
+				>>> x **2 <br>
+				0.25 <br>
+				>>> y = 111 <br>
+				>>> y += 222 <br>
+				333
+				
+  			</div>
+		</div>
+		
+		<br><br>
+
+
+		<div>
+			<p> we can initialized multiple variables at a same time
+
+			</p>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+				x = y = z = 0
+				
+  			</div>
+		</div>
+		
+		<br><br>
+
+
+		<div>
+			
+			
+
+			<p>
+				 Variables must be create befor they use. If we try to use a variable that is not created, it will give an error like this.
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> print (item)
+				Traceback (most recent call last):<br>
+				  File "stdin", line 1, in module<br>
+				NameError: name 'item' is not defined
+				<br>
+				
+
+  			</div>
+		</div>
+
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">Display Data</span></h4>
+			<p >print statement in Python is used to diplay output on screen. It can take zero or more parameters. With zero parameters it displays a blank line. If there are more than one parameter, they are separated with commas. We can also perform arithemtic in print statment.
+
+			</p>
+			
+			
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> print("5000 Kbs is equal to ", 5000/1000 , " Mbs") <br>
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				5000 Kbs is equal to 5 Mbs
+
+  			</div>
+		</div>
+		<br><br>
+		<div>
+
+			<p >To display a value from variable give the name of variable without quotation marks.
+
+			</p>
+			
+			
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+                                >>> a = 50 <br>
+    				>>> print(a) 
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				50
+
+  			</div>
+		</div>
+		<br><br>
+
+	<div>
+
+			<p >We can use escape sequences inside print function. An escape sequence is a sequence of characters that does not represent itself when used inside a character or string literal, but is translated into another character or a sequence of characters that may be difficult or impossible to represent directly.
+
+			</p>
+			
+			
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+                                >>> a = 50 <br>
+                                >>> b = 10 <br>
+    				>>> print("a = ",a , "\nb =", b, "\nsum = ",a+b) 
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				a =  50 <br>
+				b = 10 <br>
+				sum =  60
+
+
+  			</div>
+		</div>
+		<br><br>
+		<div>
+			<h4><span class="label label-warning">Some Commonly Used Escape Sequence Characters</span></h4>
+			<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th>#</th>
+			      <th>Escape Sequence</th>
+			      <th>Representation</th>			
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>\n</td>
+			      <td>New Line</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">2</th>
+			      <td>\t</td>
+			      <td>Horizontal Tab</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">3</th>
+			      <td>\v</td>
+			      <td>Vertical Tab</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">4</th>
+			      <td>\r</td>
+			      <td>Carriage Return</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">5</th>
+			      <td>\\</td>
+			      <td>Backslash</td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+		<br><br>
+
+
+
+		<div>
+			<h4><span class="label label-warning">Formatted Print</span></h4>
+			<p >The format specifier of type {:W.Df} means that a Float should be printed with a total Width of W
+characters and D digits behind the Decimal point.
+
+			</p>
+			
+			
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				>>> print ("a = {:.2f}".format(32.123456)) <br>
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				a = 32.12
+
+  			</div>
+		</div>
+		<br><br>
+		<div>
+
+			<p >To define a total width of 6 characters with 2 digits after decimal points.
+
+			</p>
+			
+			
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+                                >>> print ("a = {:6.2f}".format(32.123456))
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				a =  &nbsp; &nbsp;32.12
+
+  			</div>
+		</div>
+		<br><br>
+
+		<div>
+
+			<p >Insert Parameter Values in order.
+
+			</p>
+			
+			
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+                                >>> " {} needs {} points " . format ( ' Peter ' ,4)<br>
+				or <br>
+				>>> " {0} needs {1} points " . format ( ' Peter ' ,4)<br>
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				'  Peter  needs 4 points '
+
+  			</div>
+		</div>
+		<br><br>
+
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+				Create two variables a and b, assign them some value, divide a by b and print quotient and remainder.<br>
+				Operator Hint: quotient // <br>
+                                remainder %
+			</a>
+		</div>
+		<div class="collapse" id="collapseOne">
+			<div class="well">
+		    	a =  65 <br>
+			b = 10 <br>
+			print("a = ",a , "\nb =", b, "\nquotient = ",a//b, "\nremainder = ", a%b) 
+
+
+			</div>
+		</div>
+
+		<br><br>
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+				If v0 = 5, t = 0.6 and y = v0 * t, write print statement to generate the following output:<br>
+				At t = 0.600000 s, a ball with <br>
+				 initial veclocity v0 = 5.000 m/s<br> 
+				 is located at the height 3.00 m<br>
+
+ 
+			</a>
+		</div>
+		<div class="collapse" id="collapseTwo">
+			<div class="well">
+		    	print("At t = {:f} s, a ball with \n initial veclocity v0 = {:.3f} m/s \n is located at the height {:.2f} m".format(t, v0, y))
+
+
+
+			</div>
+		</div>
+
+		<br><br>
+		
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p> <a href="02-types-py.html">Next >> Types in Python</a> </p>
+</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+	<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Python is freeware. We call such a software as open source software. Open source means we can get the entire system for free over the Internet. There are no restrictions on copying it, embedding it in systems, or shipping it with products. Python is written in portable ANSI C, and compiles and runs on virtually every major platform in use today. For example, it runs on Unix systems, Linux, MS-DOS, MS-Windows, Macintosh and more. Python provides all the simplicity and ease of use of a scripting language, along with more advanced programming tools typically found in system development languages. It is a powerful language.";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>
