@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+  		<div class="row">
+    			<nav class="navbar navbar-default">
+  				<div class="container">
+    					<!-- Brand and toggle get grouped for better mobile display -->
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+      						<a class="navbar-brand" href="../index.html">Home</a>
+    					</div>
+
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="../index_/schedule.html">Schedule <span class="sr-only">(current)</span></a></li>
+							<li><a href="../index_/resources.html">Resources</a></li>
+						</ul> 
+					</div><!-- /.navbar-collapse -->
+ 				</div>
+			</nav>
+		</div>
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1> Repetitive Tasks</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. How to perform repetitive tasks </p>
+					<p>2. Different types of loops in Python</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 15 min</li>
+					<li class="list-group-item">Exercise : 2</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+		<br><br>
+	  	<div >
+		Now we are familiar with list data type. suppose there is a list of 10 numbers and we want to take square of all numbers. if you dont know about loops you will write something like: </div>
+		<br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+			
+  			<div class="panel-body">
+    				
+				numbers = [2,10,3,6,25,8,12,1,9,50]<br>
+                                print(numbers[0]**2)<br>
+                                print(numbers[1]**2)<br>
+                                print(numbers[2]**2)<br>
+                                print(numbers[3]**2)<br>
+                                print(numbers[4]**2)<br>
+                                print(numbers[5]**2)<br>
+                                print(numbers[6]**2)<br>
+                                print(numbers[7]**2)<br>
+                                print(numbers[8]**2)<br>
+                                print(numbers[9]**2)<br>
+  			</div>
+		</div>
+		<br><br>
+		<div>
+			
+			<p > <strong>but what if the list contains 100 numbers. will you write hundred times print statement???... </strong><br> The solution is a loop. When there is a need to repeat some piece of code n times, we use loop. There are two types of loop in python, For and While. We use For loop when we know in advance how many times the loop should run. The For loop contains an iterable method which process every item one by one. Here is the code to write the above script using For loop.</p>
+		</div>
+		<br><br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+                                numbers = [2,10,3,6,25,8,12,1,9,50]<br>
+    				for i in numbers:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;print(i**2)
+				
+  			</div>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid brown">
+  			<div class="panel-body">
+    				4<br>
+				100<br>
+				9<br>
+				36<br>
+				625<br>
+				64<br>
+				144<br>
+				1<br>
+				81<br>
+				2500
+
+				
+  			</div>
+		</div>
+
+
+		<br><br>
+		<div>Double asteriks (**) are used for exponentiation. Here loop will iterate each number one by one and displays its square.</div>
+		<div>
+			
+			<p > <br>"in" keyword takes each item from list one by one and assigns it in i variable. Then we can use this variable in any way we want. The body of loop is usually indented with minimum four spaces. To make the concept more clear we have another example. 
+</p>
+			
+			
+		</div>
+
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				
+					N= 10<br>
+					sum = 0<br>
+					print("Sum of Numbers from 0 to 9")<br>
+					for num in range(N):<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;sum = sum + num<br>
+					print("Sum = ", sum)
+
+
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				Sum of Numbers from 0 to 9<br>
+				Sum =  45	
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+				
+			<p >range function is used to generate a sequence of numbers, by default starts from zero and increment with one. So it will generate numbers from 0 to 9. The loop will iterate each number one by one and add this number into sum variable. Note that the last print statment will be run once only because it is outside the body of for loop.
+			</p>
+			
+			<p >With for loop we have some other loops too. One of the loop is while. It runs around a condition. The loop keep continue until the condition is true and gets terminated when the condition becomes false. 
+
+			</p>
+			
+		</div>
+
+		
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				i=10<br>
+				while i>1:<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;i = i-1<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print(i)
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				9<br>
+				8<br>
+				7<br>
+				6<br>
+				5<br>
+				4<br>
+				3<br>
+				2<br>
+				1<br>
+
+  		</div>
+		</div>
+
+		<br><br>
+		<div>
+			
+			
+			<h4><span class="label label-warning">Early exit</span></h4>
+			<p > It is possible to exit a loop before completion using break statement. 
+
+			</p>
+			
+		</div>
+
+		<br><br>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				for i in range(10):<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;x = input("Enter a number less than 100")<br>
+  				&nbsp;&nbsp;&nbsp;&nbsp;if int(x) >= 100:<br>
+ 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print("x = ", x)
+				
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				Enter a number less than 100 : 12<br>
+				x =  12<br>
+				Enter a number less than 100 : 34<br>
+				x =  34<br>
+				Enter a number less than 100 : 56<br>
+				x =  56<br>
+				Enter a number less than 100 : 100
+
+  			</div>
+		</div>
+		<div> The loop has total 10 iterations. so it should run 10 times. but there is a condition. if the user enters a number less  than or equal to 100, the loop will be terminated. <strong> input </strong> function is used to take some input from user. The value will be string by default. We cannot compare a string value with number therefore we have convert it into integer using <strong> int </strong> function before comparison.
+		<br><br>
+		<div>
+			
+			
+			<h4><span class="label label-warning">Loop in Strings</span></h4>
+			<p > We can iterate strings character by character using loops. 
+
+			</p>
+			
+		</div>
+
+		<br><br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+
+				str = "Good Day"<br>
+				for x in str:<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;print (x.upper())<br>
+				    				
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				G<br>
+				O<br>
+				O<br>
+				D<br>
+				 
+				D<br>
+				A<br>
+				Y
+
+
+  		</div>
+		</div>
+		<div> The loop takes each character from the string, converts it into upper case and then prints.
+		<br><br>
+		
+		<div>
+			
+			
+			<h4><span class="label label-warning">Nested Loops</span></h4>
+			<p > Suppose we have a list of lists. Each element of the list is also a list. To access all elements one by one we use nested loop.
+
+			</p>
+			
+		</div>
+
+		<br><br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+
+				list_of_lists = [ [1, "x", 3], [4, 5, "y"], [7, 8, 9]]<br>
+				for list in list_of_lists:<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;for x in list:<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (x)<br>
+								    
+				    				
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				1<br>
+				x<br>
+				3<br>
+				4<br>
+				5<br>
+				y<br>
+				7<br>
+				8<br>
+				9
+
+
+
+  			</div>
+		</div>
+
+		<div>
+			
+			
+			<h4><span class="label label-warning">For ... Else</span></h4>
+			<p > We may add an else clause at the end of for or while loop. When the loop completes it runs the else clause. This is actually a much better model for what’s going on in our loop. The else is checking for whether or not the loop was explicitly terminated by a break statement. else clause doesn't run if a break statement terminates the loop
+
+			</p>
+			
+		</div>
+
+		<br><br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+
+				for x in range(3):<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;print (x)<br>
+				else:<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;print ('Final x = %d' % (x))<br>
+					
+								    
+				    				
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				0<br>
+				1<br>
+				2<br>
+				Final x = 2
+
+
+
+
+  			</div>
+		</div>
+		
+		<br><br>
+
+		<div>
+			
+			
+			<h4><span class="label label-warning">Skip an iteration</span></h4>
+			<p > To skip an iteration in any loop we can use continue statement.
+
+			</p>
+			
+		</div>
+
+		<br><br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+
+				word = 'Python'   <br>                
+				letter = -1 <br>
+				while letter < len(word)-1:   <br>           
+				   &nbsp;&nbsp;&nbsp;&nbsp;letter += 1<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;if word[letter] == 'h':<br>
+				     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;print ('Current letter value :',letter, word[letter])<br>
+				else:<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;print ("Good bye!")<br>
+								    
+								    
+				    				
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				Current letter value : 0 P<br>
+				Current letter value : 1 y<br>
+				Current letter value : 2 t<br>
+				Current letter value : 4 o<br>
+				Current letter value : 5 n<br>
+				Good bye!
+
+
+
+
+
+  			</div>
+		</div>
+		
+		<br><br>
+
+
+
+
+
+		<div>
+			
+			
+			<h4><span class="label label-warning">Reading Command Line arguements through for loop</span></h4>
+			<p > 
+				Python has provided us some built in functionality to use like math functions sin, cos, sqrt etc. There is one built in class called sys through which we can use command line arguements. The built in varible which is used to store all command line arguement is sys.argv. This is an array. To access first element we write sys.argv[0], second element sys.argv[1] and so on. The first element contains the name of the script.
+			</p>
+			
+		</div>
+
+		<br><br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+
+				import sys<br>
+				start = 0; stop = len(sys.argv); step = 1<br>
+				for index in range(start, stop, step):<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;print ("sys.argv[%d]=%s" % (index, sys.argv[index]))<br>
+				    
+					
+								    
+				    				
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				sys.argv[0]=script.py<br>
+				sys.argv[1]=1<br>
+				sys.argv[2]=2<br>
+				sys.argv[3]=3<br>
+				sys.argv[4]=4<br>
+				sys.argv[5]=5<br>
+
+
+
+
+
+  			</div>
+		</div>
+		
+		<br><br>
+
+		<div>
+			
+			
+			<h4><span class="label label-warning">Accessing two or more lists simultanously</span></h4>
+			<p > Sometimes we need to access two or more lists simultanously. For this purpose we use zip function. which can iterate two or more lists simultanously.
+
+			</p>
+			
+		</div>
+
+		<br><br>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+
+				xlist = [1, 2, 3, 4]<br>
+				ylist = [2, 3, 2, 3]<br>
+				zlist = [100, 200, 300, 100]<br>
+
+				for x, y, z in zip(xlist, ylist, zlist):<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;print(x**y+z)<br>
+				   
+					
+								    
+				    				
+
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				101<br>
+				208<br>
+				309<br>
+				164
+
+
+
+
+
+  			</div>
+		</div>
+		
+		<br><br>
+
+
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				There is a list <br><br>
+				xlist = [[1, 2, 3, 4],[5, 15, 25, 35],[100, 200, 300, 100]]<br><br>
+				How to access only the second element of each sub list using for loop?
+
+			</a>
+		</div>
+		<div class="collapse" id="collapseTwo">
+			<div class="well">
+		    	for x in xlist:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;print(x[1])
+
+			</div>
+		</div>
+
+		<br>
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+				What are the differences between for and while loop?
+
+			</a>
+		</div>
+		<div class="collapse" id="collapseThree">
+			<div class="well">
+		    	<p> 1. For loop loop knows in advance how many times it will run. While loop doesn't.</p>
+			<p> 2. Counter of For loop increases itself by default but in While loop we have to increase the counter</p>
+			</div>
+		</div>
+
+		<br><br>
+	      
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p><a href="04-conditions-py.html"> Next >> Conditions</a> </p>
+</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Python is freeware. We call such a software as open source software. Open source means we can get the entire system for free over the Internet. There are no restrictions on copying it, embedding it in systems, or shipping it with products. Python is written in portable ANSI C, and compiles and runs on virtually every major platform in use today. For example, it runs on Unix systems, Linux, MS-DOS, MS-Windows (95, 98, NT), Macintosh, Amiga, Be-OS, OS/2, VMS, QNX, and more. Python provides all the simplicity and ease of use of a scripting language, along with more advanced programming tools typically found in systems development languages. It is a powerful language.";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>
