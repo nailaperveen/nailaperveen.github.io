@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+				<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+  		<div class="row">
+    			<nav class="navbar navbar-default">
+  				<div class="container">
+    					<!-- Brand and toggle get grouped for better mobile display -->
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+      						<a class="navbar-brand" href="../index.html">Home</a>
+    					</div>
+
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="../index_/schedule.html">Schedule <span class="sr-only">(current)</span></a></li>
+							<li><a href="../index_/resources.html">Resources</a></li>
+						</ul> 
+					</div><!-- /.navbar-collapse -->
+ 				</div>
+			</nav>
+		</div>
+
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1>Functions & Modules</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. To know how to organize program</p>
+					<p>2. Difference between built-in and user-defined functions</p>
+					<p>3. What are modules</p>
+					<p>4. Explore math module</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 15 min</li>
+					<li class="list-group-item">Exercise : 1</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div ><p>A functions is a small program that we write separately from the main program, but we call this small program in our main program. While we talk about functions, A general question is "why we need functions? we can put the code directly inside our main program". In simple scenarios we can do this. But functions provide many benefits which are not possible otherwise.</p>
+
+<p> Organization -- As programs grow in complexity, having all the code live inside the main() function becomes increasingly complicated. Functions allows us to divide complicated tasks into smaller, simpler ones, and drastically reduces the overall complexity of our program.</p>
+<p>Reusability -- Once a function is written, it can be called multiple times from within the program. This avoids duplicated code and minimizes the probability of copy/paste errors. Functions can also be shared with other programs, reducing the amount of code that has to be written from scratch (and retested) each time.</p>
+<p>Testing -- Because functions reduce code redundancy, there’s less code to test in the first place. Also because functions are self-contained, once we’ve tested a function to ensure it works, we don’t need to test it again unless we change it. This reduces the amount of code we have to test at one time, making it much easier to find bugs (or avoid them in the first place).</p>
+<p>Extensibility -- When we need to extend our program to handle a case it didn’t handle before, functions allow us to make the change in one place and have that change take effect every time the function is called.</p>
+<p>Abstraction -- In order to use a function, you only need to know its name, inputs, outputs, and where it lives. You don’t need to know how it works, or what other code it’s dependent upon to use it. This is super-useful for making other people’s code accessible (such as everything in the standard library).<a href="http://www.learncpp.com/cpp-tutorial/1-4b-why-functions-are-useful-and-how-to-use-them-effectively/"> Read more about functions </a></p></div>
+
+		<br>
+
+<div >There are two types of functions. Built-in functions provided by python libraries and user defined functions created by developers.</div>
+
+<div>
+			<h4> <span class="label label-warning"> Built-in Functions </span></h4>
+			<p > There are a number of functions that are always available to use. These functions are known as built-in functions in Python. Functions that come built into the Python language itself are called built-in functions and are readily available to us.Functions like print(), input(), eval() etc. that we have been using, are some examples of the built-in function.
+			</p>
+		</div>
+		
+		<br><br>
+
+
+
+		<div> <h4> <span class="label label-warning"> User Define Functions </span></h4>To define a function we use def keyword followed by the name of function and then optional parameter list within parathesis. Here is an example. The function power as its name implies calculates the power of a given number.</div>
+
+		<br><br>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	def power(num, pw):<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;result=1<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;for i in range(pw):<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result=result*num<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;return result<br>
+
+				print(power(2,3))<br>
+				print(power(3,3))<br>
+				print(power(2,5))
+				
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	8<br>
+				27<br>
+				32
+  			</div>
+		</div>
+		<br><br>
+
+
+		<div>To call a function it is necessary to provide all required parameters defined in function body. we can define a function without any argument and without return statement like this. </div>
+		
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	import datetime<br>
+
+				def info():<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;size_in_kbs = 6125<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;print("Today's date is",datetime.date.today())<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;print("File processing ......")<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;print("......................")<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;print("done")<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;print("The size of file in Mbs is",size_in_kbs/1000)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;print("The size of file in Mbs is",size_in_kbs//1000)<br>
+
+				info()
+                                
+  			</div>
+		</div>
+		<div> In python3 division with / always returns a float. To get an integer result use // instead. The output of the above code is</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	Today's date is 2016-10-26<br>
+				File processing ......<br>
+				......................<br>
+				done<br>
+				The size of file in Mbs is 6.125<br>
+				The size of file in Mbs is 6<br>
+
+				
+  			</div>
+		</div>
+                <br><br>
+		
+		<div>
+			<h4> <span class="label label-warning"> Pass by Reference </span></h4>
+			<p > In python all parameters of a function are passed by reference. It means if you change what a parameter refers to within a function, the change also reflects back in the calling function. 
+			</p>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				def addNew(lst):<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;lst.append(40)<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;lst.append(50)<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;return<br>
+
+
+				mylist = [10,20,30]<br>
+				addNew(mylist)<br>
+				print ("List: ", mylist)<br>
+				    
+  			</div>
+		</div>
+
+                <div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				List:  [10, 20, 30, 40, 50]
+
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+				<div>
+		<h4> <span class="label label-warning"> Keyword Arguements </span></h4>
+			<p > Keyword arguments are related to the function calls. When we use keyword arguments in a function call, the caller identifies the arguments by the parameter name. Usually in a function call it is mandatory to provide parameters in the same sequence as they are defined in function definition but when we use keyword arguements we can ignore the sequence.
+			</p>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				def printinfo(name, age):<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;print ("Name: ", name)<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;print ("Age ", age)<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;return<br>
+
+				printinfo(age=50, name="Ali")<br>
+				    
+  			</div>
+		</div>
+
+                <div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				Name:  Ali<br>
+				Age  50
+
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+
+		<div>
+				<h4> <span class="label label-warning"> Default Arguements </span></h4>
+			<p > A default argument is an argument that assumes a default value if a value is not provided in the function call for that argument. Default arguement should always be placed in the last of arguements.
+			</p>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				def print_factors(x=10):<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;print("The factors of",x,"are:")<br>
+				   &nbsp;&nbsp;&nbsp;&nbsp;for i in range(1, x + 1):<br>
+				       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x % i == 0:<br>
+					   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+				print_factors(20)<br>
+                                print_factors()
+
+  			</div>
+		</div>
+
+                <div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				The factors of 20 are:<br>
+				1<br>
+				2<br>
+				4<br>
+				5<br>
+				10<br>
+				20<br>
+				The factors of 10 are:<br>
+				1<br>
+				2<br>
+				5<br>
+				10
+
+
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+		
+
+
+				<div>
+				<h4> <span class="label label-warning"> Scope of Variables </span></h4>
+			<p > A variable that is defined outside the function, can be used inside the function. but a variable defined inside a function cannot be used outside the function. It is called as local variable.
+			</p>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+    				x=17<br>
+				def prime():<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;y = 20<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;for i in range(2, x):<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x % i == 0:<br>
+					    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(x, " is not prime")<br>
+					    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(x , " is prime")<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;print (z)<br>
+
+				z = "......End of loop........"<br>
+				prime()<br>
+				print(y)<br>
+
+  			</div>
+		</div>
+
+                <div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+    				17  is prime<br>
+				......End of loop........<br>
+				Traceback (most recent call last):<br>
+				  File "ex.py", line 12, <br>
+				    print(y)<br>
+				NameError: name 'y' is not defined<br>
+
+
+
+				
+  			</div>
+		</div>
+
+		<br><br>
+<div><h4> <span class="label label-warning"> Modules </span></h4>
+		<p>A module allows you to logically organize Python code. Grouping related code into a module makes the code easier to understand and use. Simply, a module is a file consisting of Python code. A module can define functions, classes and variables. A module can also include runnable code. You can use any Python source file as a module by executing an import statement in some other Python source file.<br>
+Python comes with a library of standard modules like math, sys, matplotlib, numpy etc
+</p></div>
+		
+	<br><br>
+		<div><h4> <span class="label label-warning"> Math Module </span></h4>
+		<p>Math module provides access to the mathematical functions. It provides functions like floor, ceil, factorial, sum, exp, log, power etc. These functions cannot be used with complex numbers; use the functions of the same name from the cmath module if you require support for complex numbers. To import a module we can write<br><br>
+<strong>import math 	</strong># it imports complete math module. to call a function write math.sin(x)<br>
+<strong>import math as mt </strong>	# it imports complete math module. to call a function write mt.sin(x)<br>
+<strong>from math import sin,cos </strong>	# it imports only sin and cos functions. to call a function write sin(x)<br>
+<strong>from math import * </strong>	#it imports all function from math module. to call a function just write the name e.g. sqrt(x) <br><br>
+Here some examples of functions from math module</p></div>
+		
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	from math import *<br>
+				x = 2.45<br>
+				y = 5<br>
+				z = [.1, .5, 2.0, .5]<br>
+				print("Floor = ",floor(x))<br>
+				print("Ceil = ",ceil(x))<br>
+				print("Factorial = ",factorial(y))<br>
+				print("Exponent = ", exp(x))<br>
+				print("Log = ", log(x))<br>
+				print("Power = ", pow(x,y))<br>
+				print("Square Root = ", sqrt(5))<br>
+				print("Sum of List = ", fsum(z))<br>
+				print("Sin = ", sin(x))<br>
+                               
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	Floor =  2<br>
+				Ceil =  3<br>
+				Factorial =  120<br>
+				Exponent =  11.588346719223392<br>
+				Log =  0.8960880245566357<br>
+				Power =  88.27351531250004<br>
+				Square Root =  2.23606797749979<br>
+				Sum of List =  3.1<br>
+				Sin =  0.6377647021345036
+
+
+				
+  			</div>
+		</div>
+                <br><br>
+		
+	<div>
+		<p>Now using cmath library here is the implementation of quadratic equation</p></div>
+		
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	import cmath<br>
+
+				a = 1<br>
+				b = 5<br>
+				c = 6<br>
+
+				# calculate the discriminant<br>
+				d = (b**2) - (4*a*c)<br>
+
+				# find two solutions<br>
+				sol1 = (-b-cmath.sqrt(d))/(2*a)<br>
+				sol2 = (-b+cmath.sqrt(d))/(2*a)<br>
+
+				print('The solution are {0} and {1}'.format(sol1,sol2))
+                               
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	The solution are (-3+0j) and (-2+0j)<br>
+
+  			</div>
+		</div>
+                <br><br>
+
+		
+
+		<br><br>
+	
+		
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				What is the output of given code?<br><br>	
+                                def quadcube(x):<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;return x**2, x**3<br>
+				 
+				a, b = quadcube(3)<br>
+				print (a, b)
+
+				
+
+			</a>
+		</div>
+		<div class="collapse" id="collapseTwo">
+			<div class="well">
+		    	9 &nbsp;&nbsp;&nbsp;&nbsp;  27
+			</div>
+		</div>
+
+		<br><br>
+
+
+	      
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p> <a href="07-exceptions-py.html">Next >> Exception Handling</a> </p>
+</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Python is freeware. We call such a software as open source software. Open source means we can get the entire system for free over the Internet. There are no restrictions on copying it, embedding it in systems, or shipping it with products. Python is written in portable ANSI C, and compiles and runs on virtually every major platform in use today. For example, it runs on Unix systems, Linux, MS-DOS, MS-Windows (95, 98, NT), Macintosh, Amiga, Be-OS, OS/2, VMS, QNX, and more. Python provides all the simplicity and ease of use of a scripting language, along with more advanced programming tools typically found in systems development languages. It is a powerful language.";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>

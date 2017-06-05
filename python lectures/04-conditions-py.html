@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<title>Learn Python</title>
+
+    	<!-- Bootstrap -->
+    	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="import" href="../import.html">
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+	<div class="container">
+		<div id="subcontainer"></div>
+                <script>
+		    var link = document.querySelector('link[rel="import"]');
+
+		    // Clone the <template> in the import.
+		    var template = link.import.querySelector('template');
+		    var clone = document.importNode(template.content, true);
+
+		    document.querySelector('#subcontainer').appendChild(clone);
+		  </script>
+
+  		<div class="row">
+    			<nav class="navbar navbar-default">
+  				<div class="container">
+    					<!-- Brand and toggle get grouped for better mobile display -->
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+      						<a class="navbar-brand" href="../index.html">Home</a>
+    					</div>
+
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="../index_/schedule.html">Schedule <span class="sr-only">(current)</span></a></li>
+							<li><a href="../index_/resources.html">Resources</a></li>
+						</ul> 
+					</div><!-- /.navbar-collapse -->
+ 				</div>
+			</nav>
+		</div>
+
+		<div class="row">
+			<div class="container page-header alert-success">
+				<h1>Conditions</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class=" panel panel-info">
+		  		<!-- Default panel contents -->
+		  		<div class="panel-heading">Objectives</div>
+		  		<div class="panel-body">
+					<p>1. To know what are alternative paths to run a program</p>
+					<p>2. Performance improvement</p>
+		  		</div>
+
+		 		<ul class="list-group">
+					<li class="list-group-item">Duration: 15 min</li>
+					<li class="list-group-item">Exercise : 1</li>
+				   
+				</ul>
+			</div>
+		</div>
+
+
+	  	<div > Sometimes in our program we have a situation that can be true or false. For example we are checking for positive and negative numbers. we want to deal with them with different conversion methods. Any given number may be positive or negative. To check it, we can use conditions. A condition can be evaluated either true or false and based on that outcome we can define flow of our program.<br><br> To use condition we need to know about comparison operators. They are used to compare two values. </div>
+
+
+		<br><br>
+		<table class="table">
+		<tr><th>Operator </th><th>Description</th></tr>
+		<tr><td>==</td><td>If the values of two operands are equal, then the condition becomes true.</td></tr>
+<tr><td>!=</td><td>If values of two operands are not equal, then condition becomes true.</td></tr>
+<tr><td>></td><td>If the value of left operand is greater than the value of right operand, then condition becomes true.</td></tr>
+<tr><td><</td><td>If the value of left operand is less than the value of right operand, then condition becomes true.</td></tr>
+<tr><td>>=</td><td>If the value of left operand is greater than or equal to the value of right operand, then condition becomes true.</td></tr>
+<tr><td><=</td><td>If the value of left operand is less than or equal to the value of right operand, then condition becomes true.</td></tr>
+
+		</table>
+		<br><br>
+
+		<div>
+			<h4> <span class="label label-warning"> simple if condition </span></h4>
+			<p > suppose we have a variable and we want to check the type of variable.
+ 
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	x = 10 + 2j<br><br>
+				if type(x) == int: <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print ("Variable x is integer")<br><br>
+
+				if type(x) == float: <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print ("Variable x is float")<br><br>
+
+				if type(x) == complex: <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print ("Variable x is complex")<br><br>
+
+				if type(x) == str: <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print ("Variable x is string")<br>				
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	Variable x is complex
+
+				
+  			</div>
+		</div>
+		<br><br>
+
+		<div>
+			<h4> <span class="label label-warning"> if else </span></h4>
+			<p > To explore the use of if else we will take a number input, check whether it is positive or negative and then give its absolute value
+ 
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	n = input("Integer? ")<br>	
+				n = int(n)<br>	
+				if n < 0:<br>	
+				    &nbsp;&nbsp;&nbsp;&nbsp;print ("The absolute value of",n,"is",-n)<br>	
+				else:<br>	
+				    &nbsp;&nbsp;&nbsp;&nbsp;print ("The absolute value of",n,"is",n)
+							
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	Integer? -9<br>
+				The absolute value of -9 is 9
+
+
+				
+  			</div>
+		</div>
+		<br><br>
+
+
+
+		<div>
+			<h4> <span class="label label-warning"> Conditions with Logical Operators </span></h4>
+			<p > sometimes we want to check two things together. we need logical operator <strong> and, or, not </strong> to combine two or more conditions
+ 
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	name = "John"<br>
+				age = 23<br>
+				if name == "John" and age == 20:<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print ("Good")<br>
+
+				if name == "John" or age == 20:<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print ("Ok")
+				
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	Ok
+				
+  			</div>
+		</div>
+		<br><br>
+
+		<div>
+			
+			<p > Another example using not operator.
+			</p>
+		</div>
+
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	std_list = ["Mark","Bob", "Alice","John"]<br>
+				name = "Alex" <br>
+				if name not in std_list:<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print ("You are not registered.")<br>
+
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	You are not registered.
+				
+  			</div>
+		</div>
+		<br><br>
+
+
+		<div><h4> <span class="label label-warning"> if elif else </span></h4>
+		<p>If we have multiple conditions in our code then it is better to write it with if elseif structure.</p></div>
+		
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	name = "John"<br>
+				age = 23<br>
+				if name == "John" and age == 20:<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print ("Good")<br>
+
+				elif name == "John" or age == 20:<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;print ("Ok")<br>
+				else:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;print ("Incorrect Info")
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	Ok
+				
+  			</div>
+		</div>
+                <br><br>
+		<div>The output is same in both programs but there are performance differences. In our first code both conditions will run everytime. In our second code if any one condition gets true, rest will be skipped.
+		</div>
+		
+
+		<br><br>
+		
+
+		<div><h4> <span class="label label-warning"> A Simple Game using while and if condition </span></h4>
+		<p>If we have multiple conditions in our code then it is better to write it with if elseif structure.</p></div>
+		
+		<br><br>
+		
+		<div class="panel panel-default" style="border-left: 6px solid #646D7E;">
+  			<div class="panel-body">
+			    	answer = 23<br>
+				question = 'What number am I thinking of?  '<br>
+				print ('Let\'s play the guessing game!')<br>
+
+				while True:<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;guess = int(input(question))<br>
+
+				    &nbsp;&nbsp;&nbsp;&nbsp;if guess < answer:<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print ('Little higher')<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;elif guess > answer:<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print ('Little lower')<br>
+				    &nbsp;&nbsp;&nbsp;&nbsp;else: # guess == answer<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print ('YES!!!')<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break
+
+                               
+  			</div>
+		</div>
+		<div class="panel panel-default" style="border-left: 6px solid brown;">
+  			<div class="panel-body">
+			    	Let's play the guessing game!<br>
+				What number am I thinking of? 20<br>
+				Little higher<br>
+				What number am I thinking of? 45<br>
+				Little lower<br>
+				What number am I thinking of? 35<br>
+				Little lower<br>
+				What number am I thinking of? 22<br>
+				Little higher<br>
+				What number am I thinking of? 23<br>
+				YES!!!
+
+				
+  			</div>
+		</div>
+                <br><br>
+		
+
+
+
+		<div class="panel">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="text-align:left">
+				What is the output of given code?<br><br>	
+                                name = "John" 	<br>		
+				if name in ["John", "Rick"]:<br>
+    					&nbsp;&nbsp;&nbsp;&nbsp;print ("Your name is either John or Rick.")<br>
+                                else:<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;print("Sorry")<br>
+				
+
+			</a>
+		</div>
+		<div class="collapse" id="collapseTwo">
+			<div class="well">
+		    	Your name is either John or Rick.
+			</div>
+		</div>
+
+		<br><br>
+
+
+	      
+<div class="page-header alert-success" style="box-shadow: 6px 6px 5px 0px grey">
+  <p> <a href="05-files-py.html">Next >> Files</a> </p>
+</div>
+
+	</div><!-- /.container-fluid -->
+
+
+
+<script src="../js/angular.min.js"></script>
+	
+	
+	<script src = "../js/jquery.min.js"> </script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope)
+		{
+	    		$scope.section1 = "Python is freeware. We call such a software as open source software. Open source means we can get the entire system for free over the Internet. There are no restrictions on copying it, embedding it in systems, or shipping it with products. Python is written in portable ANSI C, and compiles and runs on virtually every major platform in use today. For example, it runs on Unix systems, Linux, MS-DOS, MS-Windows (95, 98, NT), Macintosh, Amiga, Be-OS, OS/2, VMS, QNX, and more. Python provides all the simplicity and ease of use of a scripting language, along with more advanced programming tools typically found in systems development languages. It is a powerful language.";
+	    		
+
+		});
+	</script>
+
+</body>
+</html>
